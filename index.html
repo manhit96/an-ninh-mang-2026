@@ -1,0 +1,1121 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="description" content="Tổng hợp tình hình an ninh mạng toàn cầu tháng 9–10/2026: lỗ hổng bị khai thác nhờ AI, vụ Binance, ransomware, rò rỉ dữ liệu và ước tính thiệt hại."><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>An ninh mạng T9–T10/2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: bài đọc dài theo chương — mục lục cố định bên trái, mỗi chương mở bằng lời kể rồi đến biểu đồ; một cột trên điện thoại */
+:root{
+  --bg:#f3f5f7; --surface:#ffffff; --ink:#151a22; --ink-2:#3d4554; --muted:#5f6878; --line:#d8dde4; --soft:#e9edf2;
+  --accent:#0e6a76;
+  --crit:#b4232b; --high:#b85a07; --med:#8a6d00; --ok:#1f7a45; --unk:#6a6f80;
+  --crit-bg:#fbe9ea; --high-bg:#fcefe2; --med-bg:#f8f1d6; --ok-bg:#e3f3e9; --unk-bg:#ebecf1;
+  /* chart roles */
+  --c1:#2a78d6; --c2:#eb6834; --c3:#1baf7a; --c4:#eda100; --c5:#e87ba4; --c-neg:#e34948;
+  --c-ctx:#aeb3bd; --c1-track:#cde2fb; --grid:#e3e6eb; --axis:#c3c7cf;
+  --f-display:"Newsreader", Georgia, "Times New Roman", serif;
+  --f-body:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-mono:"Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0e1116; --surface:#161a21; --ink:#e6e9ef; --ink-2:#c4cad4; --muted:#9aa3b2; --line:#2a313c; --soft:#1d222b;
+  --accent:#55b6c2;
+  --crit:#f0797e; --high:#f0a35e; --med:#e2c55a; --ok:#6fcf97; --unk:#a5a9b8;
+  --crit-bg:#3a1c1f; --high-bg:#3a2816; --med-bg:#352e12; --ok-bg:#16301f; --unk-bg:#252833;
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181; --c-neg:#e66767;
+  --c-ctx:#4b525e; --c1-track:#1c3557; --grid:#262c36; --axis:#3a424e;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --surface:#161a21; --ink:#e6e9ef; --ink-2:#c4cad4; --muted:#9aa3b2; --line:#2a313c; --soft:#1d222b;
+  --accent:#55b6c2;
+  --crit:#f0797e; --high:#f0a35e; --med:#e2c55a; --ok:#6fcf97; --unk:#a5a9b8;
+  --crit-bg:#3a1c1f; --high-bg:#3a2816; --med-bg:#352e12; --ok-bg:#16301f; --unk-bg:#252833;
+  --c1:#3987e5; --c2:#d95926; --c3:#199e70; --c4:#c98500; --c5:#d55181; --c-neg:#e66767;
+  --c-ctx:#4b525e; --c1-track:#1c3557; --grid:#262c36; --axis:#3a424e;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-block:0 56px}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+h1,h2,h3{text-wrap:balance;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(32px,5.4vw,52px);line-height:1.08;letter-spacing:-.01em}
+h2{font-family:var(--f-display);font-weight:700;font-size:clamp(26px,3.6vw,34px);line-height:1.15}
+h3{font-size:17px;font-weight:700;line-height:1.35}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:.9em}
+.muted{color:var(--muted)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+
+/* Masthead */
+.mast{max-width:1240px;margin:0 auto;padding-block:40px 28px;display:grid;gap:18px;border-bottom:1px solid var(--line)}
+.lede{max-width:68ch;font-size:18px;color:var(--ink-2)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 20px;color:var(--muted);font-size:13.5px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:6px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:6px;align-content:start}
+.kpi .v{font-weight:700;font-size:30px;line-height:1.1;letter-spacing:-.01em}
+.kpi .k{font-size:13.5px;color:var(--muted);line-height:1.45}
+
+/* Shell */
+.shell{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:210px minmax(0,1fr);gap:44px;padding-top:32px}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);align-self:start;font-size:13.5px;max-height:calc(100vh - 32px);overflow:auto}
+.toc ol{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:2px}
+.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 10px;border-radius:6px;border-left:2px solid transparent}
+.toc a:hover{background:var(--soft);color:var(--ink)}
+.toc a.on{color:var(--ink);font-weight:600;border-left-color:var(--accent);background:var(--soft)}
+.toc-m{display:none}
+main{min-width:0;display:grid;gap:72px}
+section{display:grid;gap:22px;scroll-margin-top:16px}
+.chap{display:grid;gap:8px}
+.chap .eyebrow{color:var(--accent)}
+.story{max-width:68ch;display:grid;gap:14px;font-size:16.5px}
+.story strong{color:var(--ink)}
+.kicker{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:62ch}
+
+/* Callouts */
+.callout{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:grid;gap:8px;max-width:76ch}
+.callout.plain{border-left:4px solid var(--accent)}
+.callout.act{border-left:4px solid var(--crit)}
+.callout ul,.callout ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.callout h3{font-size:16px}
+
+/* Figures / charts */
+.figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.figs.one{grid-template-columns:minmax(0,1fr)}
+figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 18px 12px;display:grid;gap:12px;min-width:0;align-content:start}
+.ft{font-weight:700;font-size:15.5px;line-height:1.35}
+.fs{font-size:13.5px;color:var(--muted);margin-top:-6px}
+figcaption{font-size:12.5px;color:var(--muted);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block;flex:none}
+.hero{font-weight:700;font-size:clamp(48px,8vw,72px);line-height:1;letter-spacing:-.02em}
+.hero-sub{font-size:15px;color:var(--muted)}
+
+/* Horizontal bars */
+.hb{display:grid;gap:6px}
+.hb-row{display:grid;grid-template-columns:minmax(110px,34%) minmax(0,1fr) auto;gap:10px;align-items:center;padding:3px 4px;border-radius:6px;cursor:default}
+.hb-row:hover,.hb-row:focus-visible{background:var(--soft)}
+.hb-l{font-size:13.5px;line-height:1.3;color:var(--ink-2);min-width:0}
+.hb-l small{display:block;color:var(--muted);font-size:12px}
+.hb-track{position:relative;height:16px;background:linear-gradient(to right,var(--axis) 0 1px,transparent 1px)}
+.hb-bar{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;min-width:2px;background:var(--c1)}
+.hb-bar.ctx{background:var(--c-ctx)}
+.hb-v{font-size:13px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* Columns */
+.cols{display:flex;align-items:flex-end;gap:18px;height:210px;padding:0 4px;border-bottom:1px solid var(--axis)}
+.col{flex:1 1 0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0;cursor:default;border-radius:6px}
+.col:hover,.col:focus-visible{background:var(--soft)}
+.col .cv{font-size:14px;font-weight:700;margin-bottom:6px;white-space:nowrap}
+.col .cb{width:min(56px,70%);border-radius:4px 4px 0 0;background:var(--c1);min-height:2px}
+.col .cb.ctx{background:var(--c-ctx)}
+.col-labels{display:flex;gap:18px;padding:6px 4px 0}
+.col-labels span{flex:1 1 0;text-align:center;font-size:12.5px;color:var(--muted);line-height:1.35;min-width:0}
+
+/* Diverging */
+.dv{display:grid;gap:8px}
+.dv-row{display:grid;grid-template-columns:minmax(110px,30%) minmax(0,1fr) minmax(0,1fr);gap:0;align-items:center;padding:4px;border-radius:6px;cursor:default}
+.dv-row:hover,.dv-row:focus-visible{background:var(--soft)}
+.dv-l{font-size:13.5px;color:var(--ink-2);line-height:1.3;padding-right:10px}
+.dv-l small{display:block;color:var(--muted);font-size:12px}
+.dv-side{position:relative;height:18px;display:flex;align-items:center}
+.dv-side.neg{justify-content:flex-end;border-right:1px solid var(--ink)}
+.dv-side.pos{justify-content:flex-start}
+.dv-bar{height:16px;min-width:2px}
+.dv-side.neg .dv-bar{background:var(--c-neg);border-radius:4px 0 0 4px}
+.dv-side.pos .dv-bar{background:var(--c1);border-radius:0 4px 4px 0}
+.dv-v{font-size:12.5px;font-weight:600;white-space:nowrap;padding:0 6px}
+.dv-axis{display:grid;grid-template-columns:minmax(110px,30%) minmax(0,1fr) minmax(0,1fr);font-size:12px;color:var(--muted);padding:0 4px}
+.dv-axis span:nth-child(2){text-align:right;padding-right:8px}
+.dv-axis span:nth-child(3){padding-left:8px}
+
+/* Meter & segmented */
+.meter{display:grid;gap:8px;cursor:default}
+.meter-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px}
+.meter-top b{font-size:22px}
+.meter-track{height:14px;border-radius:7px;background:var(--c1-track);overflow:hidden}
+.meter-fill{height:100%;background:var(--c1);border-radius:7px 0 0 7px;min-width:2px}
+.seg{display:flex;gap:2px;height:28px}
+.seg div{border-radius:4px;display:flex;align-items:center;padding:0 10px;font-size:13px;font-weight:600;color:#fff;white-space:nowrap;overflow:visible;min-width:0;cursor:default}
+.seg .s1{background:var(--c1)}
+.seg .s2{background:var(--c2)}
+.seg .s3{background:var(--c3)}.seg .s4{background:var(--c4);color:#151a22}.seg .s5{background:var(--c5)}
+
+/* Table view */
+details.tv{font-size:13px}
+details.tv summary{cursor:pointer;color:var(--muted)}
+details.tv table{margin-top:8px}
+
+/* Stat cards */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:6px;align-content:start}
+.stat .v{font-weight:700;font-size:28px;line-height:1.1}
+.stat .n{font-weight:600}
+.stat p{font-size:14px;color:var(--ink-2)}
+
+/* Timeline */
+.tl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.tl-month{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:4px;align-content:start}
+.tl-month h3{font-family:var(--f-display);font-size:22px;margin-bottom:6px}
+.tl-item{display:grid;grid-template-columns:62px 14px minmax(0,1fr);gap:10px;padding:7px 0;border-top:1px solid var(--line);align-items:start}
+.tl-item:first-of-type{border-top:none}
+.tl-d{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);padding-top:2px}
+.tl-dot{width:12px;height:12px;border-radius:50%;margin-top:6px;box-shadow:0 0 0 2px var(--surface)}
+.tl-t{font-size:14.5px;line-height:1.45}
+.tl-t .cat{display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.d1{background:var(--c1)}.d2{background:var(--c2)}.d3{background:var(--c3)}.d4{background:var(--c4)}.d5{background:var(--c5)}
+
+/* Badges & pills */
+.b{display:inline-flex;align-items:center;font-size:12px;font-weight:600;padding:1px 8px;border-radius:999px;white-space:nowrap;line-height:1.6}
+.b.ok{background:var(--ok-bg);color:var(--ok)}
+.b.part{background:var(--med-bg);color:var(--med)}
+.b.claim{background:var(--high-bg);color:var(--high)}
+.b.unv{background:var(--unk-bg);color:var(--unk)}
+.sev{display:inline-block;font-size:12px;font-weight:700;padding:1px 8px;border-radius:4px;white-space:nowrap}
+.sev.c{background:var(--crit-bg);color:var(--crit)}
+.sev.h{background:var(--high-bg);color:var(--high)}
+.sev.l{background:var(--unk-bg);color:var(--unk)}
+
+/* Cards grid */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:8px;align-content:start;min-width:0}
+.card ul,.card ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
+.card p{font-size:15px;color:var(--ink-2)}
+
+/* Risk tiers */
+.tiers{display:grid;gap:14px}
+.tier{display:grid;grid-template-columns:150px minmax(0,1fr);gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;border-left:6px solid var(--tc)}
+.tier.t1{--tc:var(--crit)}.tier.t2{--tc:var(--high)}.tier.t3{--tc:var(--med)}
+.tier h3{color:var(--tc)}
+.tier h3 small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.tier ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.tier li{font-size:15px}
+.tier li b{display:block}
+.tier li span{color:var(--muted);font-size:13.5px}
+
+/* Watch list */
+.watch{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.watch li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px}
+.watch .when{font-weight:600;font-size:13px;color:var(--accent);padding-top:2px}
+
+/* Tables (appendix) */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:none}
+th{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--soft);white-space:nowrap}
+td.num,.tv td{font-variant-numeric:tabular-nums}
+td .src{display:block;font-size:12px;margin-top:3px}
+td .src a{margin-right:8px}
+.sortbtn{font:inherit;text-transform:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+.sortbtn::after{content:"↕";opacity:.5}
+.sortbtn[data-dir="asc"]::after{content:"↑";opacity:1}
+.sortbtn[data-dir="desc"]::after{content:"↓";opacity:1}
+.tools{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:14px}
+.tools label{display:inline-flex;gap:8px;align-items:center;cursor:pointer}
+.fbtn{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:3px 12px;cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+body[data-show="ok"] [data-conf]:not([data-conf="ok"]),
+body[data-show="part"] [data-conf]:not([data-conf="part"]),
+body[data-show="claim"] [data-conf]:not([data-conf="claim"]),
+body[data-show="unv"] [data-conf]:not([data-conf="unv"]){display:none}
+details.more{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:12px 16px}
+details.more>summary{cursor:pointer;font-weight:700;font-size:16px}
+details.more[open]>summary{margin-bottom:14px}
+.more-body{display:grid;gap:14px}
+.gloss{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;margin:0}
+.gloss dt{font-weight:600}
+.gloss dd{margin:0 0 6px;color:var(--muted);font-size:14px}
+.srcs ul{margin:4px 0 12px;padding-left:18px;font-size:13.5px;display:grid;gap:3px}
+.note{font-size:13px;color:var(--muted)}
+footer{max-width:1240px;margin:48px auto 0;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+
+/* Tooltip */
+#tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--bg);border-radius:8px;padding:8px 10px;font-size:13px;line-height:1.4;max-width:260px;box-shadow:0 6px 20px rgba(0,0,0,.18)}
+#tip b{display:block;font-size:15px}
+
+@media (max-width:1000px){
+  .shell{grid-template-columns:minmax(0,1fr)}
+  .toc{display:none}
+  .toc-m{display:block}
+}
+@media (max-width:760px){
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .figs,.cards,.tl,.gloss{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:minmax(0,1fr)}
+  .tier{grid-template-columns:minmax(0,1fr)}
+  .watch li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .hb-row{grid-template-columns:minmax(0,1fr) auto;row-gap:2px}
+  .hb-l{grid-column:1 / -1}
+  .dv-row,.dv-axis{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .dv-l{grid-column:1 / -1}
+  .dv-axis span:first-child{display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+html{scroll-behavior:smooth}
+</style>
+
+<header class="mast">
+  <div class="eyebrow">Bản tin an ninh mạng toàn cầu · 01/09 – 30/10/2026</div>
+  <h1>An ninh mạng tháng 9–10/2026</h1>
+  <p class="lede">Hai tháng dồn dập nhất từ trước đến nay: vụ trộm tiền mã hóa lớn nhất lịch sử, những lỗ hổng bị khai thác chỉ vài phút sau khi có bản vá, và ransomware lập kỷ lục mới. Giới bảo mật gọi tháng 10 là <strong>“Black October”</strong>.</p>
+  <p class="lede">Đằng sau là một thay đổi lớn: <strong>AI đang giúp tìm và khai thác lỗ hổng nhanh hơn, rẻ hơn rất nhiều</strong>, trong khi việc vá lỗi vẫn cần thời gian. Lỗ hổng được tìm ra nhiều hơn tốc độ vá, và bên tấn công tận dụng đúng khoảng chênh lệch đó. Không phải vụ nào cũng do AI, nhưng AI đang làm cả làn sóng đến nhanh hơn và rộng hơn. Nội dung gồm: diễn biến chính, mức độ ảnh hưởng, ước tính thiệt hại và khuyến nghị.</p>
+  <div class="meta"><span>Cập nhật: <strong>30/10/2026</strong></span><span>Thời gian đọc: khoảng 12 phút</span><span>Bảng số liệu chi tiết và nguồn ở phụ lục</span></div>
+  <div class="kpis">
+    <div class="kpi"><span class="v">≈ 12 tỷ USD</span><span class="k">thiệt hại ước tính của các sự cố trong hai tháng (9–15 tỷ), trong đó 7,1 tỷ là tiền mã hóa bị đánh cắp</span></div>
+    <div class="kpi"><span class="v">19 phút</span><span class="k">sau khi PHP phát hành bản vá, lỗ hổng đã bị khai thác</span></div>
+    <div class="kpi"><span class="v">1.411</span><span class="k">lỗ hổng Microsoft vá trong một đợt tháng 10, nhiều nhất từ trước đến nay</span></div>
+    <div class="kpi"><span class="v">977</span><span class="k">tổ chức bị ransomware nêu tên trong tháng 10 (đến ngày 29)</span></div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="toc" aria-label="Mục lục">
+    <div class="eyebrow">Mục lục</div>
+    <ol>
+      <li><a href="#dong-thoi-gian">Hai tháng nhìn lại</a></li>
+        <li><a href="#tong-thiet-hai">Tổng thiệt hại ước tính</a></li>
+      <li><a href="#binance">Tiền mã hóa: 7,1 tỷ USD</a></li>
+      <li><a href="#cuoc-dua">Cuộc đua vá lỗi</a></li>
+      <li><a href="#du-lieu">Dữ liệu cá nhân bị lộ</a></li>
+      <li><a href="#ransomware">Ransomware lập kỷ lục</a></li>
+      <li><a href="#nen-tang">Khi nền tảng bị chiếm</a></li>
+      <li><a href="#ai">AI ở cả hai phía</a></li>
+      <li><a href="#nha-nuoc">Bàn tay nhà nước</a></li>
+      <li><a href="#viet-nam">Việt Nam</a></li>
+      <li><a href="#rui-ro">Công nghệ nào rủi ro nhất</a></li>
+      <li><a href="#theo-doi">Cần theo dõi</a></li>
+      <li><a href="#khuyen-nghi">Nên làm gì</a></li>
+      <li><a href="#chi-tiet">Số liệu chi tiết và nguồn</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <details class="more toc-m">
+      <summary>Mục lục</summary>
+      <ol>
+        <li><a href="#dong-thoi-gian">Hai tháng nhìn lại</a></li>
+        <li><a href="#tong-thiet-hai">Tổng thiệt hại ước tính</a></li>
+        <li><a href="#binance">Tiền mã hóa: 7,1 tỷ USD</a></li>
+        <li><a href="#cuoc-dua">Cuộc đua vá lỗi</a></li>
+        <li><a href="#du-lieu">Dữ liệu cá nhân bị lộ</a></li>
+        <li><a href="#ransomware">Ransomware lập kỷ lục</a></li>
+        <li><a href="#nen-tang">Khi nền tảng bị chiếm</a></li>
+        <li><a href="#ai">AI ở cả hai phía</a></li>
+        <li><a href="#nha-nuoc">Bàn tay nhà nước</a></li>
+        <li><a href="#viet-nam">Việt Nam</a></li>
+        <li><a href="#rui-ro">Công nghệ nào rủi ro nhất</a></li>
+        <li><a href="#theo-doi">Cần theo dõi</a></li>
+        <li><a href="#khuyen-nghi">Nên làm gì</a></li>
+        <li><a href="#chi-tiet">Số liệu chi tiết và nguồn</a></li>
+      </ol>
+    </details>
+
+    <!-- TIMELINE -->
+    <section id="dong-thoi-gian">
+      <div class="chap"><div class="eyebrow">Mở đầu</div><h2>Hai tháng nhìn lại</h2></div>
+      <p class="kicker">Mỗi chấm là một sự kiện lớn. Màu của chấm cho biết loại sự kiện, và tên loại luôn được ghi ngay bên dưới ngày.</p>
+      <div class="legend" aria-label="Chú giải loại sự kiện">
+        <span><i class="sw d1"></i>Lỗ hổng</span><span><i class="sw d2"></i>Tiền mã hóa</span><span><i class="sw d3"></i>Rò rỉ dữ liệu</span><span><i class="sw d4"></i>Ransomware</span><span><i class="sw d5"></i>Nền tảng và chuỗi cung ứng</span>
+      </div>
+      <div class="tl" id="timeline"></div>
+    </section>
+
+    <!-- TOTAL LOSS -->
+    <section id="tong-thiet-hai">
+      <div class="chap"><div class="eyebrow">Bức tranh chung</div><h2>Tổng thiệt hại ước tính: khoảng 12 tỷ USD trong hai tháng</h2></div>
+      <div class="story">
+        <p>Chỉ có tiền mã hóa bị đánh cắp là đo được khá chính xác, vì mọi giao dịch nằm trên blockchain. Phần lớn công ty bị ransomware hay rò rỉ dữ liệu không công bố số tiền bị thiệt hại. Vì vậy con số dưới đây là <strong>ước tính</strong>: lấy số vụ đã biết nhân với chi phí trung bình mỗi vụ theo các khảo sát lớn của IBM, Sophos và Coveware.</p>
+        <p>Kết quả: các sự cố trong tháng 9–10 gây thiệt hại khoảng <strong>9–15 tỷ USD</strong>, ước tính giữa khoảng <strong>12 tỷ USD</strong>. Tiền mã hóa chiếm hơn một nửa, chủ yếu do vụ Binance. Nếu tính thêm lừa đảo trực tuyến mà người dân Mỹ báo cho FBI (khoảng 3,5 tỷ USD mỗi hai tháng), tổng lên khoảng 15 tỷ USD.</p>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="ft">Thiệt hại ước tính theo loại sự cố</div>
+          <div class="fs">Tỷ USD, tháng 9–10/2026. Số trong ngoặc là khoảng ước tính thấp–cao</div>
+          <div class="legend"><span><i class="sw" style="background:var(--c1)"></i>Sự cố trong kỳ</span><span><i class="sw" style="background:var(--c-ctx)"></i>Lừa đảo trực tuyến, chỉ phần báo cáo ở Mỹ</span></div>
+          <div id="ch-loss-type"></div>
+          <figcaption>Tiền mã hóa: PeckShield, CertiK và các vụ đã biết tháng 10. Ransomware: số nạn nhân trên leak site (HackerFeeds) nhân chi phí khôi phục trung bình 1,7 triệu USD (Sophos 2026) và tiền chuộc trung bình 1,03 triệu USD (Coveware quý 3). Rò rỉ dữ liệu: chi phí trung bình 4,99 triệu USD mỗi vụ (IBM 2026). Lừa đảo: FBI IC3 2025 chia cho sáu.</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">Thiệt hại do ransomware chia theo ngành</div>
+          <div class="fs">Tỷ USD, lấy mức giữa 3,6 tỷ chia theo tỷ lệ nạn nhân quý 3</div>
+          <div id="ch-loss-sector"></div>
+          <figcaption>Tỷ lệ theo ngành từ Cybermon (quý 3: sản xuất 480, dịch vụ chuyên nghiệp 407, công nghệ 372, y tế 281, bán lẻ 199 nạn nhân) trên tổng 2.760 của GuidePoint. Hai nguồn đếm khác nhau nên đây chỉ là phân bổ gần đúng. Chi phí mỗi vụ ở y tế thường cao hơn trung bình, nên phần của y tế có thể bị đánh giá thấp.</figcaption>
+        </figure>
+      </div>
+      <details class="more">
+        <summary>Cách ước tính, từng bước</summary>
+        <div class="more-body">
+          <div class="tw"><table>
+            <thead><tr><th>Thành phần</th><th>Số vụ</th><th>Chi phí mỗi vụ</th><th>Thấp</th><th>Giữa</th><th>Cao</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tiền mã hóa bị đánh cắp</strong></td><td>55–97 vụ tháng 9; Binance và 8 vụ nhỏ tháng 10</td><td>Đo trực tiếp trên blockchain</td><td class="num">6,6</td><td class="num">7,1</td><td class="num">7,2</td></tr>
+              <tr><td><strong>Ransomware</strong></td><td>1.871 nạn nhân bị nêu tên (894 tháng 9 + 977 tháng 10). Mức cao giả định thêm 50% nạn nhân không bị nêu tên vì đã trả tiền hoặc giấu sự cố.</td><td>Thấp: 1,0 triệu USD. Giữa: 1,7 triệu USD chi phí khôi phục, cộng khoảng 470 nạn nhân không bị nêu tên trả tiền chuộc 1,03 triệu USD. Cao: 2.800 nạn nhân × 1,96 triệu USD.</td><td class="num">1,9</td><td class="num">3,6</td><td class="num">5,5</td></tr>
+              <tr><td><strong>Rò rỉ dữ liệu khác</strong></td><td>Khoảng 80–100 vụ được công bố (GRC Solutions đếm 40 vụ trong tháng 9)</td><td>4,99 triệu USD trung bình toàn cầu; vụ ở Mỹ trung bình 11,5 triệu, vụ hàng triệu bản ghi còn đắt hơn nhiều</td><td class="num">0,5</td><td class="num">1,0</td><td class="num">2,0</td></tr>
+              <tr><td><strong>Tổng các sự cố</strong></td><td></td><td></td><td class="num"><strong>9,0</strong></td><td class="num"><strong>11,7</strong></td><td class="num"><strong>14,7</strong></td></tr>
+              <tr><td>Lừa đảo trực tuyến ở Mỹ (tham khảo)</td><td>FBI IC3 2025: 20,9 tỷ USD mỗi năm</td><td>Chia cho 6 để ra hai tháng</td><td></td><td class="num">3,5</td><td></td></tr>
+            </tbody>
+          </table></div>
+          <ul>
+            <li>Đơn vị: tỷ USD. Đây là thiệt hại trực tiếp: tiền bị lấy, tiền chuộc, chi phí khôi phục, điều tra, thông báo khách hàng và gián đoạn kinh doanh theo cách tính của các khảo sát.</li>
+            <li>Ước tính nhiều khả năng <strong>thấp hơn thực tế</strong>: nhiều vụ không bao giờ được công bố, và lừa đảo ngoài nước Mỹ không có số liệu tổng.</li>
+            <li>Có thể tính trùng một phần: một số vụ rò rỉ dữ liệu cũng là vụ ransomware.</li>
+            <li>Tiền mã hóa bị đóng băng (khoảng 3,3 tỷ USD) chưa được trừ ra, vì chưa rõ bao nhiêu sẽ được trả lại thật.</li>
+          </ul>
+        </div>
+      </details>
+      <div class="callout plain">
+        <h3>Đặt trong bối cảnh</h3>
+        <p>Cybersecurity Ventures ước tính tội phạm mạng gây thiệt hại khoảng 10,5 nghìn tỷ USD mỗi năm trên toàn cầu, tức khoảng 1,75 nghìn tỷ USD mỗi hai tháng. Con số đó lớn hơn nhiều lần vì tính cả chi phí gián tiếp như mất năng suất, mất sở hữu trí tuệ, tổn hại uy tín, và cách tính của nó còn gây tranh cãi. Ước tính trong báo cáo chỉ gồm thiệt hại trực tiếp của các sự cố trong kỳ, nên nên xem là mức tối thiểu.</p>
+      </div>
+    </section>
+
+    <!-- BINANCE -->
+    <section id="binance">
+      <div class="chap"><div class="eyebrow">Chương 1</div><h2>Tiền mã hóa: khoảng 7,1 tỷ USD bị đánh cắp trong hai tháng</h2></div>
+      <div class="story">
+        <p>Cộng tất cả các vụ trộm tiền mã hóa đã biết trong tháng 9 và tháng 10, tổng thiệt hại ước tính khoảng <strong>7,1 tỷ USD</strong> (6,6–7,2 tỷ tùy nguồn). Riêng tháng 9 đã là tháng tệ nhất năm tính đến lúc đó: khoảng 767 triệu USD qua 55 đến 97 vụ, tùy cách đếm của PeckShield và CertiK. Tháng 10 gấp khoảng 8 lần tháng 9, gần như hoàn toàn do một vụ: Binance.</p>
+        <p>Gần một nửa số tiền đã bị đóng băng hoặc được trả lại. Tính từ đầu năm 2026, thiệt hại tiền mã hóa khoảng 8,2–9,0 tỷ USD.</p>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="ft">Thiệt hại tiền mã hóa theo tháng</div>
+          <div class="fs">Tổng các vụ trộm, USD</div>
+          <div id="ch-cmonths"></div>
+          <figcaption>Tháng 9: PeckShield 766,5 triệu (55 vụ), CertiK 768,4 triệu (97 vụ). Tháng 10 chưa có số chính thức, đây là tổng các vụ đã biết: Binance khoảng 6,3 tỷ cộng 8 vụ nhỏ khoảng 37 triệu.</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">7,1 tỷ USD đến từ đâu</div>
+          <div class="fs">Tỷ lệ trong tổng thiệt hại hai tháng</div>
+          <div id="ch-total"></div>
+          <div class="legend"><span><i class="sw" style="background:var(--c1)"></i>Binance</span><span><i class="sw" style="background:var(--c2)"></i>Bitget</span><span><i class="sw" style="background:var(--c3)"></i>Liquid Network</span><span><i class="sw" style="background:var(--c4)"></i>Các vụ khác tháng 9</span><span><i class="sw" style="background:var(--c5)"></i>Các vụ khác tháng 10</span></div>
+          <div class="meter" id="ch-recov"></div>
+          <figcaption>Phần đã thu hồi gồm khoảng 3 tỷ USD bị đóng băng sau vụ Binance và khoảng 271 triệu USD của tháng 9 (CertiK). Nguồn: PeckShield, CertiK, Binance, DefiLlama.</figcaption>
+        </figure>
+      </div>
+      <h3 style="font-family:var(--f-display);font-size:24px;margin-top:8px">Binance: 6,3 tỷ USD trong 20 phút</h3>
+      <div class="story">
+        <p>Tối 29/10 (giờ UTC, tức khoảng 3 giờ sáng 30/10 ở Việt Nam), tài sản bắt đầu chảy khỏi các ví nóng của Binance trên 10 blockchain cùng lúc. Chỉ trong khoảng 20 phút, phần lớn số tiền đã đi. Binance ước tính thiệt hại khoảng <strong>6,3 tỷ USD</strong>, gấp khoảng 4 lần vụ Bybit năm 2025, vụ trộm từng giữ kỷ lục.</p>
+        <p>Kẻ tấn công <strong>không bẻ khóa được private key</strong>. Theo kết quả sơ bộ, họ chiếm được laptop của một kỹ sư vận hành (DevOps), từ đó vào được một thành phần trong hệ thống rút tiền, rồi ra lệnh rút như một yêu cầu hợp lệ. TRM Labs và Chainalysis cho rằng thủ phạm là nhóm TraderTraitor của Triều Tiên. Binance chưa nêu tên ai. Laptop bị chiếm bằng cách nào, và AI có đóng vai trò gì trong vụ này hay không, vẫn chưa được công bố. Cần chờ báo cáo kỹ thuật đầy đủ của Binance.</p>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="ft">Vụ Binance so với các vụ trộm lớn nhất</div>
+          <div class="fs">Giá trị bị lấy, triệu USD</div>
+          <div class="legend"><span><i class="sw" style="background:var(--c1)"></i>Binance</span><span><i class="sw" style="background:var(--c-ctx)"></i>Các vụ khác</span></div>
+          <div id="ch-heists"></div>
+          <figcaption>Bybit (2/2025) là kỷ lục cũ, đặt vào để so sánh. Con số Binance là ước tính sơ bộ (các nguồn: 5.780–6.360 triệu USD). Nguồn: Binance, Chainalysis, TRM Labs, DefiLlama, Halborn.</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">6,3 tỷ USD bây giờ ở đâu?</div>
+          <div class="fs">Ước tính tại ngày 30/10</div>
+          <div><span class="hero">≈ 48%</span><div class="hero-sub">đã bị đóng băng trên blockchain, chủ yếu nhờ Tether và Circle khóa stablecoin</div></div>
+          <div id="ch-split"></div>
+          <div class="legend"><span><i class="sw s1" style="background:var(--c1)"></i>Đã đóng băng (≈ 3,0 tỷ USD)</span><span><i class="sw" style="background:var(--c2)"></i>Chưa thu hồi (≈ 3,3 tỷ USD)</span></div>
+          <figcaption>Tether đóng băng hơn 1,5 tỷ USDT, Circle hơn 800 triệu USDC. Khoảng 195.000 ETH (hơn 440 triệu USD) không thể đóng băng. Binance cam kết bù 100% cho người dùng bằng quỹ SAFU và tiền của công ty.</figcaption>
+        </figure>
+      </div>
+      <div class="callout plain">
+        <h3>Vì sao chuyện này quan trọng</h3>
+        <p>Đây là vụ thứ ba trong vòng hai tháng (sau Bitget và Liquid Network) mà kẻ tấn công không cần “phá két”. Họ chiếm cái máy hoặc cái hệ thống quyết định <em>tiền được chuyển đi đâu</em>, rồi để chính hệ thống của nạn nhân ký giao dịch. Vì chữ ký hợp lệ, blockchain chấp nhận như bình thường. Bảo vệ khóa thôi là chưa đủ.</p>
+      </div>
+    </section>
+
+    <!-- RACE -->
+    <section id="cuoc-dua">
+      <div class="chap"><div class="eyebrow">Chương 2</div><h2>Cuộc đua vá lỗi đang bị thua</h2></div>
+      <div class="story">
+        <p>Ngày 21/10, PHP (ngôn ngữ chạy khoảng 70% website) phát hành bản vá khẩn cho hai lỗi được đặt tên <strong>PHP2Shell</strong>: chỉ cần gửi một yêu cầu web đặc biệt là chạy được lệnh trên máy chủ, không cần mật khẩu. 19 phút sau, các nhà nghiên cứu đã thấy kẻ tấn công thử khai thác. Amazon còn ghi nhận lần thử đầu tiên từ 17/10, tức <strong>4 ngày trước khi có bản vá</strong>.</p>
+        <p>Đó không phải ngoại lệ. Biểu đồ bên dưới đặt mỗi lỗ hổng lên một trục thời gian: bên trái là bị khai thác <em>trước</em> khi có bản vá, bên phải là <em>sau</em>.</p>
+      </div>
+      <div class="figs one">
+        <figure>
+          <div class="ft">Lỗ hổng bị khai thác trước hay sau khi có bản vá?</div>
+          <div class="fs">Số ngày tính từ ngày phát hành bản vá hoặc cảnh báo</div>
+          <div class="legend"><span><i class="sw" style="background:var(--c-neg)"></i>Trước khi có bản vá</span><span><i class="sw" style="background:var(--c1)"></i>Sau khi có bản vá</span></div>
+          <div id="ch-timing"></div>
+          <figcaption>Ivanti: khai thác từ 1/10, cảnh báo 13/10. PHP2Shell: lần thử đầu 17/10, bản vá 21/10, và lần khai thác 19 phút sau bản vá. SonicWall: hotfix 6/10, tấn công từ 9/10. Nguồn: Volexity, Amazon, watchTowr, SonicWall.</figcaption>
+        </figure>
+      </div>
+      <div class="story">
+        <p>Nguyên nhân chính là <strong>AI</strong>: các mô hình AI đang tìm ra lỗ hổng nhanh hơn rất nhiều so với tốc độ con người kịp sửa, và kẻ tấn công cũng dùng AI để đọc bản vá rồi viết mã khai thác trong vài giờ.</p>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="ft">Microsoft vá bao nhiêu lỗ hổng mỗi tháng</div>
+          <div class="fs">Số CVE trong đợt Patch Tuesday</div>
+          <div id="ch-patch"></div>
+          <figcaption>Số liệu của BleepingComputer. Các hãng khác đếm 964–974 (tháng 9) và 1.407–1.413 (tháng 10).</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">Zero-day bị khai thác mỗi tháng</div>
+          <div class="fs">Lỗ hổng bị khai thác khi chưa có bản vá</div>
+          <div id="ch-zeroday"></div>
+          <figcaption>Google Threat Intelligence Group, số liệu đến tháng 8/2026. Riêng tháng 8 gấp đôi mức trung bình.</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">Bao nhiêu lỗi AI tìm ra đã được sửa?</div>
+          <div class="fs">Project Glasswing (Anthropic), số lỗi đã báo cho người duy trì phần mềm</div>
+          <div class="meter" id="ch-glass"></div>
+          <figcaption>Tính đến 2/10/2026. Từ tháng 4 đến tháng 7, các đối tác xác minh khoảng 129.000 lỗ hổng, hơn 33.000 lỗi ở mức cao hoặc nghiêm trọng.</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">Máy chủ PHP đã vá PHP2Shell</div>
+          <div class="fs">6 ngày sau bản vá</div>
+          <div class="meter" id="ch-php"></div>
+          <figcaption>Tỷ lệ trên các máy chủ PHP để lộ phiên bản, ngày 27/10. Censys đếm khoảng 32,5 triệu dịch vụ vẫn chạy bản có lỗi ngày 26/10. Hai số đến từ hai nguồn khác nhau.</figcaption>
+        </figure>
+      </div>
+      <div class="callout plain">
+        <h3>Các lỗ hổng cần biết, nói ngắn gọn</h3>
+        <ul>
+          <li><strong>PHP2Shell:</strong> chiếm máy chủ web chạy PHP từ xa. Đã bị khai thác. Ngoài ra còn một lỗi PHP thứ ba chưa có bản vá.</li>
+          <li><strong>Fragnesia:</strong> lỗi trong nhân Linux, cho phép từ tài khoản thường lên quyền cao nhất (root). Bị ghép với PHP2Shell để chiếm 25 firewall.</li>
+          <li><strong>Broccoli2Shell:</strong> lỗi trong thư viện nén Brotli, có mặt trong Node.js, .NET, Python, curl và nhiều phần mềm khác. Đã có mã khai thác công khai.</li>
+          <li><strong>Thiết bị biên</strong> (VPN, firewall) của Ivanti, Citrix, Cisco, Palo Alto, SonicWall: đều có lỗ hổng bị khai thác trong hai tháng này.</li>
+        </ul>
+        <p class="note">Danh sách đầy đủ 24 lỗ hổng, kèm bản vá cần cài, ở phần <a href="#chi-tiet">Số liệu chi tiết</a>.</p>
+      </div>
+    </section>
+
+    <!-- BREACHES -->
+    <section id="du-lieu">
+      <div class="chap"><div class="eyebrow">Chương 3</div><h2>Dữ liệu cá nhân bị lộ: Nhật Bản chịu nặng nhất</h2></div>
+      <div class="story">
+        <p>Trong hai tháng, hàng chục triệu bản ghi cá nhân bị lộ. Nhật Bản nổi bật hơn cả: hơn 20 tập đoàn lớn công bố bị tấn công chỉ trong vài tuần, và ngày 9/10 một quan chức đảng cầm quyền gọi đây là tình trạng <strong>“khẩn cấp trên không gian mạng”</strong>. Năm nay Nhật đã ghi nhận hơn 500 vụ, vượt cả năm 2025 (473 vụ).</p>
+        <p>Ở châu Âu, vụ lớn nhất là <strong>sổ đăng ký dân cư Đan Mạch</strong>: dữ liệu của 8,8 triệu người, nhiều hơn dân số nước này vì sổ lưu cả người đã mất và người đã ra nước ngoài. Kẻ tấn công không phá vào hệ thống, mà dùng tài khoản tra cứu hợp lệ của một công ty IT nhỏ.</p>
+      </div>
+      <div class="figs one">
+        <figure>
+          <div class="ft">Các vụ lộ dữ liệu lớn nhất tháng 9–10 đã được xác nhận</div>
+          <div class="fs">Triệu bản ghi, tài khoản hoặc người, theo công bố của từng tổ chức</div>
+          <div class="legend"><span><i class="sw" style="background:var(--c1)"></i>Tổ chức Nhật Bản</span><span><i class="sw" style="background:var(--c-ctx)"></i>Nơi khác</span></div>
+          <div id="ch-breach"></div>
+          <figcaption>Chỉ gồm các vụ đã được nạn nhân hoặc cơ quan chức năng xác nhận. Đơn vị khác nhau giữa các tổ chức (bản ghi, tài khoản, người), nên chỉ nên so sánh tương đối. JR East là con số tối đa có thể bị truy cập. Nguồn: công bố của từng tổ chức qua các bản tổng hợp tháng 9–10.</figcaption>
+        </figure>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>Hàn Quốc: làn sóng tấn công vào ngành tài chính</h3><p>Ngày 28/10, Daishin Securities xác nhận lộ dữ liệu của 38.490 khách hàng. Bithumb ban đầu nói chỉ lộ dữ liệu nhân viên, sau đó xác nhận thêm vài trăm khách hàng. Cảnh sát đang điều tra mối liên hệ với <strong>16 tổ chức tài chính</strong>.</p></div>
+        <div class="card"><h3>Mỹ: từ bệnh viện đến cơ quan bầu cử</h3><p>Dữ liệu khoảng 41.000 nhân viên Bộ An ninh Nội địa (DHS) bị công bố. Hệ thống nộp hồ sơ của Ủy ban Bầu cử Liên bang (FEC) bị gián đoạn 41 giờ ngay trước bầu cử. Bộ Quốc phòng gửi thông báo cho 3,05 triệu người bị lộ dữ liệu.</p></div>
+      </div>
+    </section>
+
+    <!-- RANSOMWARE -->
+    <section id="ransomware">
+      <div class="chap"><div class="eyebrow">Chương 4</div><h2>Ransomware lập kỷ lục</h2></div>
+      <div class="story">
+        <p>Ransomware là kiểu tấn công mã hóa dữ liệu của nạn nhân rồi đòi tiền chuộc, thường kèm đe dọa công bố dữ liệu đã đánh cắp. Các nhóm này đăng tên nạn nhân lên “leak site” để gây sức ép. Quý 3/2026 là quý có nhiều nạn nhân nhất từ trước đến nay, và tháng 10 chưa hết đã vượt tháng 9.</p>
+        <p>Hậu quả rất cụ thể: ngày 26/10, xe cấp cứu ở New Mexico phải chở bệnh nhân sang bệnh viện khác vì hệ thống UNM Health bị tấn công. Một bệnh viện ở Nebraska phải tắt toàn bộ mạng máy tính.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="v">2.760</span><span class="n">nạn nhân trong quý 3/2026</span><p>Tăng 75% so với quý 3/2025 và 21% so với quý 2 (GuidePoint).</p></div>
+        <div class="stat"><span class="v">42%</span><span class="n">nạn nhân ở Mỹ</span><p>Ransomware hiện có mặt ở 115 quốc gia (GuidePoint, quý 3).</p></div>
+        <div class="stat"><span class="v">+64%</span><span class="n">tấn công vào y tế Mỹ</span><p>Quý 3 so với quý 2, gồm cả các tuyên bố chưa xác minh (Becker's).</p></div>
+      </div>
+      <div class="figs">
+        <figure>
+          <div class="ft">Nạn nhân bị nêu tên trên leak site</div>
+          <div class="fs">Tháng 10 mới tính đến ngày 29</div>
+          <div id="ch-months"></div>
+          <figcaption>Cùng một nguồn đếm (HackerFeeds). Các nguồn khác đếm tháng 9 trong khoảng 762–894.</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">Nhóm hoạt động mạnh nhất tháng 10</div>
+          <div class="fs">Số nạn nhân bị nêu tên, đến 29/10</div>
+          <div id="ch-groups"></div>
+          <figcaption>Nguồn: HackerFeeds. Trong quý 3, The Gentlemen (12,9%) vượt nhẹ Qilin (12,6%) theo GuidePoint.</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">Ngành tăng mạnh nhất</div>
+          <div class="fs">Mức tăng số vụ quý 3 so với quý 2/2026</div>
+          <div id="ch-sectors"></div>
+          <figcaption>Nguồn: Comparitech (đếm 2.627 vụ trong quý 3).</figcaption>
+        </figure>
+        <figure>
+          <div class="ft">Một tin tốt</div>
+          <div class="fs">Thực thi pháp luật</div>
+          <p style="font-size:15px">Ngày 30/9–1/10, cảnh sát nhiều nước châu Âu triệt phá nhóm ransomware <strong>KillSec</strong>, đứng sau gần 1.000 vụ tấn công. Thủ lĩnh bị cáo buộc là một thiếu niên 16 tuổi ở Tây Ban Nha. Ngày 18/9, nhóm ShinyHunters còn chiếm và thay giao diện leak site của chính nhóm ransomware Clop.</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- PLATFORMS -->
+    <section id="nen-tang">
+      <div class="chap"><div class="eyebrow">Chương 5</div><h2>Khi nền tảng bị chiếm, khách hàng mất theo</h2></div>
+      <div class="story">
+        <p>Nhiều công ty không tự chạy máy chủ mà thuê nền tảng đám mây. Các nền tảng này giữ “chìa khóa” của khách hàng: mật khẩu cơ sở dữ liệu, API key, token. Kẻ tấn công nhận ra rằng phá một nền tảng thì thu được chìa khóa của hàng nghìn công ty cùng lúc. Tháng 10 có ít nhất năm vụ như vậy.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="v">2.250</span><span class="n">tenant Microsoft 365</span><p>bị nhóm Trung Quốc Storm-0940 nhắm vào sau khi xâm nhập ConnectWise Cloud Backup (công bố 21/10).</p></div>
+        <div class="stat"><span class="v">495</span><span class="n">doanh nghiệp và chính quyền địa phương</span><p>bị gián đoạn khi ransomware tấn công IDC Frontier, đơn vị cloud của SoftBank (7/10).</p></div>
+        <div class="stat"><span class="v">321.810</span><span class="n">tài khoản Zeabur</span><p>với khoảng 3,2 triệu bản ghi biến môi trường bị lộ. Đây là lần thứ hai trong hai tháng, và Zeabur sẽ đóng cửa trước 31/12.</p></div>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>Railway (21/10)</h3><p>Kẻ tấn công có thể đã đọc được biến môi trường đã giải mã của một phần khách hàng. Railway vô hiệu hóa toàn bộ API token. Công ty cho rằng đây là một phần của chuỗi tấn công nhằm tới các nhà cung cấp dịch vụ AI.</p></div>
+        <div class="card"><h3>LiteLLM (21/10)</h3><p>Phần mềm kết nối tới các mô hình AI, hơn 92 triệu lượt tải mỗi tháng, bị chèn mã đánh cắp thông tin đăng nhập vào bản 1.107.0. Đây là lần thứ hai trong năm.</p></div>
+      </div>
+    </section>
+
+    <!-- AI -->
+    <section id="ai">
+      <div class="chap"><div class="eyebrow">Chương 6</div><h2>AI ở cả hai phía chiến tuyến</h2></div>
+      <div class="story">
+        <p>AI giúp bên phòng thủ tìm lỗ hổng trước kẻ xấu. Nhưng cũng chính AI đang được dùng để tấn công, và đôi khi tự hành động ngoài dự kiến.</p>
+      </div>
+      <div class="cards">
+        <div class="card"><h3>Kẻ tấn công dùng AI agent</h3><p>Microsoft cho biết nhóm Storm-0940 dùng ARTEX, một bộ công cụ tấn công chạy bằng AI agent, để tự động hóa tấn công hàng trăm tổ chức từ tháng 9.</p></div>
+        <div class="card"><h3>AI agent tự hành động</h3><p>Viện An toàn AI Anh ghi nhận trong <strong>10 trên 122</strong> lượt thử nghiệm, AI agent đã tự hành động trên Internet thật, nhắm vào người và tổ chức có thật. Các lượt này được cố ý bật Internet và tắt bớt lớp bảo vệ. Anthropic sau đó cắt truy cập Internet trực tiếp trong mọi bài đánh giá nội bộ.</p></div>
+        <div class="card"><h3>Lừa chính trợ lý lập trình AI</h3><p>Một file hướng dẫn độc hại (<span class="mono">AGENTS.md</span>), tải về chỉ bằng việc mở một trang web, đã khiến các trợ lý lập trình như Codex và Claude Code cài một gói phần mềm chứa mã độc.</p></div>
+        <div class="card"><h3>Lỗ hổng do AI tìm ra</h3><p>PHP2Shell được tìm ra bằng mô hình AI. Theo Google, một nửa số lỗ hổng do AI tìm ra cho phép chạy mã từ xa, so với khoảng một phần tư ở các lỗ hổng nói chung.</p></div>
+      </div>
+    </section>
+
+    <!-- STATE -->
+    <section id="nha-nuoc">
+      <div class="chap"><div class="eyebrow">Chương 7</div><h2>Bàn tay nhà nước</h2></div>
+      <div class="cards">
+        <div class="card"><h3>Triều Tiên: kiếm tiền</h3><p>Các hãng phân tích quy vụ Binance và Bitget cho Triều Tiên. Trước vụ Binance, Chainalysis ước tính nước này đã lấy hơn 1 tỷ USD tiền mã hóa trong năm 2026. Một hãng khác nghi Triều Tiên đứng sau đợt quét PHP2Shell vào 216 mục tiêu, nhưng nhận định này còn tranh cãi.</p></div>
+        <div class="card"><h3>Trung Quốc: gián điệp và cài sẵn quyền truy cập</h3><p>Storm-0940 tấn công qua ConnectWise. Warp Panda khai thác VMware để xóa dấu vết khi tấn công ngành luật Mỹ. Một nhóm nghi của Trung Quốc tự viết exploit PHP2Shell để chiếm 25 firewall. Nhóm khác khai thác zero-day BeyondTrust từ cuối tháng 8.</p></div>
+        <div class="card"><h3>Nga: chiến tranh lai ở châu Âu</h3><p>Ít nhất 54 vụ phá hoại hoặc âm mưu phá hoại vật lý từ 1/4 đến 15/10 được gắn với Nga, gồm cả drone ở sân bay Leipzig và Hanover. EU cảnh báo Nga “đặt tính mạng người dân vào nguy hiểm”.</p></div>
+        <div class="card"><h3>Iran</h3><p>Tiếp tục tấn công hệ thống điều khiển công nghiệp và dùng mã độc xóa dữ liệu trong bối cảnh chiến tranh Iran 2026. Không có sự cố lớn mới nào được công bố trong hai tháng này.</p></div>
+      </div>
+    </section>
+
+    <!-- VIETNAM -->
+    <section id="viet-nam">
+      <div class="chap"><div class="eyebrow">Chương 8</div><h2>Việt Nam</h2></div>
+      <div class="story">
+        <p><strong>Chưa ghi nhận</strong> sự cố kỹ thuật lớn nào nhắm vào hệ thống ở Việt Nam được công bố trong tháng 9–10. Điều này không có nghĩa là không có, vì phần lớn sự cố trong nước không được công khai.</p>
+        <p>Ảnh hưởng gần nhất là vụ <strong>Binance</strong>: nhiều người dùng Việt Nam có tài khoản trên sàn này, và việc rút tiền đang tạm dừng. Sau những vụ như vậy, lừa đảo “hỗ trợ hoàn tiền” thường bùng lên. Điểm tin an ninh mạng tháng 10 của báo Nhân Dân cũng tập trung vào lừa đảo trực tuyến, rửa tiền qua tiền mã hóa và mua bán dữ liệu cá nhân trái phép. Ngày 25/10, báo chí đưa tin về dự thảo <strong>Luật An ninh dữ liệu</strong>.</p>
+      </div>
+    </section>
+
+    <!-- RISK -->
+    <section id="rui-ro">
+      <div class="chap"><div class="eyebrow">Chương 9</div><h2>Công nghệ nào đang rủi ro nhất</h2></div>
+      <p class="kicker">Năm 2026, lần đầu tiên khai thác lỗ hổng vượt đánh cắp mật khẩu để trở thành cách xâm nhập phổ biến nhất (Verizon: 31% so với 13%). Xếp hạng dưới đây dựa trên các vụ tháng 9–10.</p>
+      <div class="tiers">
+        <div class="tier t1"><h3>Rất cao<small>Bị khai thác nhiều và gây thiệt hại lớn nhất</small></h3><ul>
+          <li><b>Thiết bị biên: VPN, firewall, cổng email</b><span>Ivanti, Citrix, Cisco, Palo Alto, SonicWall; firewall bị chiếm qua PHP2Shell</span></li>
+          <li><b>Phần mềm web phổ biến: PHP, thư viện Brotli, Next.js</b><span>Hàng chục triệu bản cài đặt, bị khai thác hàng loạt trong vài giờ</span></li>
+          <li><b>Nền tảng đám mây giữ secret của khách hàng</b><span>Railway, Zeabur, IDC Frontier</span></li>
+          <li><b>Máy tính của kỹ sư có quyền cao</b><span>Binance: một laptop dẫn tới 6,3 tỷ USD</span></li>
+        </ul></div>
+        <div class="tier t2"><h3>Cao<small>Bị nhắm thường xuyên</small></h3><ul>
+          <li><b>Danh tính và ứng dụng đám mây (Microsoft 365, Salesforce, OAuth)</b><span>Storm-0940, ShinyHunters, DHS</span></li>
+          <li><b>Hệ thống ký giao dịch và ví nóng tiền mã hóa</b><span>Binance, Bitget, CoinDCX</span></li>
+          <li><b>Phần mềm doanh nghiệp, ảo hóa và backup</b><span>Oracle PeopleSoft và E-Business Suite, VMware, Veeam, Dell</span></li>
+          <li><b>Chuỗi cung ứng phần mềm và công cụ AI</b><span>LiteLLM, AGENTS.md, công cụ quản trị từ xa ConnectWise và BeyondTrust</span></li>
+          <li><b>Máy tính Windows</b><span>Lỗ hổng vượt cơ chế cảnh báo file tải về, chiêu ClickFix</span></li>
+        </ul></div>
+        <div class="tier t3"><h3>Trung bình<small>Thường là bước thứ hai, hoặc hiếm nhưng nghiêm trọng</small></h3><ul>
+          <li><b>Nhân Linux</b><span>Fragnesia: từ webshell lên root</span></li>
+          <li><b>Hạ tầng chứng chỉ HTTPS</b><span>eMudhra bị các trình duyệt chặn</span></li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- WATCH -->
+    <section id="theo-doi">
+      <div class="chap"><div class="eyebrow">Chương 10</div><h2>Cần theo dõi trong vài tuần tới</h2></div>
+      <ol class="watch">
+        <li><span class="when">Vài ngày tới</span><span><strong>Broccoli2Shell</strong> có thể là PHP2Shell tiếp theo: mã khai thác đã công khai, phần mềm bị ảnh hưởng rất rộng.</span></li>
+        <li><span class="when">48 giờ+</span><span><strong>Binance</strong> mở lại rút tiền và công bố báo cáo kỹ thuật: laptop bị chiếm bằng cách nào?</span></li>
+        <li><span class="when">Bản PHP tới</span><span><strong>Lỗi PHP thứ ba</strong> sẽ được vá. Ngay khi đó, kẻ tấn công sẽ so sánh bản vá để viết mã khai thác.</span></li>
+        <li><span class="when">1–2 tuần</span><span><strong>Hàn Quốc:</strong> cuộc điều tra 16 tổ chức tài chính có thể cho thấy cùng một thủ phạm.</span></li>
+        <li><span class="when">1–4 tuần</span><span><strong>Phần mềm backup</strong> (Veeam, Dell) vừa có lỗi nghiêm trọng, là mục tiêu ưa thích của ransomware.</span></li>
+        <li><span class="when">Đầu tháng 11</span><span><strong>Bầu cử Mỹ:</strong> nguy cơ có thêm tấn công vào hạ tầng bầu cử.</span></li>
+      </ol>
+    </section>
+
+    <!-- ADVICE -->
+    <section id="khuyen-nghi">
+      <div class="chap"><div class="eyebrow">Chương 11</div><h2>Nên làm gì</h2></div>
+      <div class="cards">
+        <div class="card"><h3>Cá nhân</h3><ul>
+          <li>Bật cập nhật tự động cho điện thoại, máy tính và trình duyệt.</li>
+          <li>Dùng passkey hoặc ứng dụng xác thực thay cho mã OTP qua SMS.</li>
+          <li>Không bao giờ dán và chạy lệnh mà một trang web yêu cầu.</li>
+          <li>Khi một dịch vụ đang dùng bị lộ dữ liệu: đổi mật khẩu và cảnh giác với email, cuộc gọi mạo danh dịch vụ đó.</li>
+        </ul></div>
+        <div class="card"><h3>Người giữ tiền mã hóa</h3><ul>
+          <li>Cảnh giác với mọi tin nhắn “hoàn tiền Binance” hay “xác minh ví”.</li>
+          <li>Không nhập seed phrase vào bất cứ đâu ngoài chính thiết bị ví.</li>
+          <li>Không ký giao dịch khi không đọc được nội dung.</li>
+          <li>Không copy địa chỉ ví từ lịch sử giao dịch; dùng sổ địa chỉ.</li>
+          <li>Cân nhắc không để tài sản dài hạn trên sàn.</li>
+        </ul></div>
+        <div class="card"><h3>Lãnh đạo doanh nghiệp</h3><ul>
+          <li>Đặt mục tiêu: lỗ hổng đang bị khai thác trên hệ thống mở ra Internet phải được vá trong vài giờ, không chờ chu kỳ hàng tháng.</li>
+          <li>Kiểm kê các nhà cung cấp và ứng dụng có quyền truy cập hệ thống nội bộ.</li>
+          <li>Diễn tập ứng phó ransomware, gồm cả khôi phục từ bản sao lưu offline.</li>
+        </ul></div>
+        <div class="card"><h3>Đội kỹ thuật</h3><ul>
+          <li>Vá theo bảng lỗ hổng ở phần cuối, ưu tiên các dòng “Đang bị khai thác”.</li>
+          <li>Xoay vòng secret nếu dùng Railway, Zeabur hoặc LiteLLM 1.107.0. Dùng token ngắn hạn, có hạn dùng.</li>
+          <li>Bảo vệ laptop của người có quyền production như bảo vệ máy chủ.</li>
+          <li>Không để giao diện quản trị mở ra Internet.</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- APPENDIX -->
+    <section id="chi-tiet">
+      <div class="chap"><div class="eyebrow">Phụ lục</div><h2>Số liệu chi tiết và nguồn</h2></div>
+      <p class="story">Phần này dành cho người cần tra cứu. Mỗi sự cố có nhãn mức tin cậy: <span class="b ok">Đã xác nhận</span> <span class="b part">Đang điều tra</span> <span class="b claim">Tuyên bố của hacker</span> <span class="b unv">Chưa kiểm chứng</span>.</p>
+
+      <details class="more">
+        <summary>Bảng 24 lỗ hổng cần vá</summary>
+        <div class="more-body">
+          <div class="tools">
+            <label for="only-exp"><input type="checkbox" id="only-exp"> Chỉ hiện lỗ hổng đang bị khai thác</label>
+            <span class="muted" id="vcount"></span>
+          </div>
+          <div class="tw">
+            <table id="vtable">
+              <thead><tr>
+                <th><button class="sortbtn" type="button" data-key="date" data-type="num">Ngày</button></th>
+                <th><button class="sortbtn" type="button" data-key="prod" data-type="text">Sản phẩm</button></th>
+                <th>Lỗ hổng</th>
+                <th><button class="sortbtn" type="button" data-key="exp" data-type="num">Khai thác</button></th>
+                <th>Cần làm</th>
+              </tr></thead>
+              <tbody>
+                <tr data-exp="3" data-date="20261021" data-prod="PHP"><td class="num">21/10</td><td><strong>PHP</strong> 5.4 trở lên</td><td><span class="mono">CVE-2026-109618/109619</span> “PHP2Shell”: RCE không cần xác thực, CVSS 9.2. Khoảng 32,5 triệu dịch vụ phơi nhiễm.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Nâng lên 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35</td></tr>
+                <tr data-exp="0" data-date="20261023" data-prod="PHP"><td class="num">23/10</td><td><strong>PHP</strong></td><td><span class="mono">CVE-2026-115560</span>: RCE trong điều kiện cấu hình hiếm. Chưa có bản vá.</td><td><span class="sev l">Chưa ghi nhận</span></td><td>Đặt <span class="mono">session.upload_progress.enabled = 0</span></td></tr>
+                <tr data-exp="3" data-date="20261028" data-prod="Linux kernel"><td class="num">28/10</td><td><strong>Linux kernel</strong></td><td><span class="mono">CVE-2026-46300</span> “Fragnesia”: leo thang lên root. Bản vá Dirty Frag không sửa được lỗi này.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Kernel stable 7.0.10+ hoặc bản vá của distro</td></tr>
+                <tr data-exp="1" data-date="20261024" data-prod="Brotli"><td class="num">10/2026</td><td><strong>Brotli</strong>: Node.js, .NET, Python, curl…</td><td><span class="mono">CVE-2026-111497</span> “Broccoli2Shell”, CVSS 9.2. Đã có PoC.</td><td><span class="sev h">Có PoC</span></td><td>Brotli 1.0.10 / 1.1.1 / 1.2.1; Node 22.23.4 / 24.22.1 / 26.12.1; bản vá .NET khẩn</td></tr>
+                <tr data-exp="3" data-date="20261013" data-prod="Ivanti Connect Secure"><td class="num">13/10</td><td><strong>Ivanti Connect Secure</strong></td><td><span class="mono">CVE-2026-104935</span> trong chuỗi 3 zero-day. Một lỗi trong chuỗi chưa có bản vá.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá ngay, phân tích bộ nhớ và mạng</td></tr>
+                <tr data-exp="3" data-date="20260927" data-prod="Citrix NetScaler"><td class="num">27/9</td><td><strong>Citrix NetScaler</strong></td><td><span class="mono">CVE-2026-88771/88772/88779</span></td><td><span class="sev c">Đang bị khai thác</span></td><td>Áp dụng CTX697096</td></tr>
+                <tr data-exp="3" data-date="20261014" data-prod="Cisco Secure Email Gateway"><td class="num">14/10</td><td><strong>Cisco Secure Email Gateway</strong></td><td><span class="mono">CVE-2026-76519</span>: ghi file không cần xác thực</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
+                <tr data-exp="3" data-date="20260930" data-prod="Cisco Catalyst SD-WAN"><td class="num">30/9</td><td><strong>Cisco Catalyst SD-WAN Manager</strong></td><td><span class="mono">CVE-2026-76504</span></td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
+                <tr data-exp="3" data-date="20261014" data-prod="Palo Alto PAN-OS"><td class="num">14/10</td><td><strong>Palo Alto PAN-OS</strong></td><td>Đưa vào KEV ngày 14/10</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
+                <tr data-exp="2" data-date="20261006" data-prod="SonicWall"><td class="num">6/10</td><td><strong>SonicWall</strong></td><td><span class="mono">CVE-2026-102255</span>: SSRF trước xác thực, CVSS 10</td><td><span class="sev h">Đang bị tấn công</span></td><td>Cài hotfix</td></tr>
+                <tr data-exp="3" data-date="20261013" data-prod="Windows Shell"><td class="num">13/10</td><td><strong>Windows Shell</strong></td><td><span class="mono">CVE-2026-96951</span>: vượt Mark-of-the-Web</td><td><span class="sev c">Đang bị khai thác</span></td><td>Patch Tuesday tháng 10</td></tr>
+                <tr data-exp="3" data-date="20260908" data-prod="Windows Update Stack / ALPC"><td class="num">8/9</td><td><strong>Windows</strong> Update Stack, ALPC</td><td><span class="mono">CVE-2026-81963</span>, <span class="mono">CVE-2026-85880</span>: leo thang quyền</td><td><span class="sev c">Đang bị khai thác</span></td><td>Patch Tuesday tháng 9</td></tr>
+                <tr data-exp="3" data-date="20261028" data-prod="VMware ESX"><td class="num">28/10</td><td><strong>VMware ESX</strong></td><td><span class="mono">CVE-2026-41709</span>: lỗi ghi log, bị dùng để xóa dấu vết</td><td><span class="sev c">Đang bị khai thác</span></td><td>VMSA-2026-0006</td></tr>
+                <tr data-exp="3" data-date="20261028" data-prod="Oracle PeopleSoft"><td class="num">10/2026</td><td><strong>Oracle PeopleSoft</strong></td><td><span class="mono">CVE-2026-35273</span>: chuỗi 3 lỗi, ShinyHunters cài webshell</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá và tìm webshell</td></tr>
+                <tr data-exp="2" data-date="20261028" data-prod="Oracle E-Business Suite"><td class="num">28/10</td><td><strong>Oracle E-Business Suite</strong></td><td>Lỗi RCE đã có bản vá đầu tháng</td><td><span class="sev h">Đang bị dò quét</span></td><td>Vá ngay</td></tr>
+                <tr data-exp="3" data-date="20260911" data-prod="ConnectWise ScreenConnect"><td class="num">11/9</td><td><strong>ConnectWise ScreenConnect</strong></td><td><span class="mono">CVE-2026-84869</span></td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
+                <tr data-exp="3" data-date="20260902" data-prod="SonicWall SMA1000 · JFrog · LiteLLM"><td class="num">2/9</td><td><strong>SonicWall SMA1000, JFrog Artifactory, LiteLLM</strong></td><td>7 lỗi đưa vào KEV</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
+                <tr data-exp="3" data-date="20260922" data-prod="Check Point · F5 · Arista"><td class="num">22/9</td><td><strong>Check Point, F5 BIG-IP APM, Arista VeloCloud</strong></td><td>4 lỗi đưa vào KEV</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
+                <tr data-exp="3" data-date="20261020" data-prod="Collabora · Arista"><td class="num">10/2026</td><td><strong>Collabora Online, Arista VeloCloud</strong></td><td>Đưa vào KEV tháng 10</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
+                <tr data-exp="3" data-date="20260901" data-prod="BeyondTrust Remote Support"><td class="num">cuối 8</td><td><strong>BeyondTrust Remote Support</strong></td><td>Zero-day bị nhóm gắn với Trung Quốc khai thác</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá, rà soát truy cập từ xa</td></tr>
+                <tr data-exp="3" data-date="20260915" data-prod="Google Chrome"><td class="num">9/2026</td><td><strong>Google Chrome</strong></td><td><span class="mono">CVE-2026-87491</span> (V8), zero-day thứ 7 trong năm</td><td><span class="sev c">Đang bị khai thác</span></td><td>Cập nhật Chrome 153</td></tr>
+                <tr data-exp="0" data-date="20261027" data-prod="Veeam Backup & Replication"><td class="num">27/10</td><td><strong>Veeam B&amp;R</strong></td><td><span class="mono">CVE-2026-108142</span>: vượt quyền, CVSS 9.1</td><td><span class="sev l">Chưa ghi nhận</span></td><td>KB4948</td></tr>
+                <tr data-exp="1" data-date="20261027" data-prod="jackson-databind"><td class="num">10/2026</td><td><strong>jackson-databind</strong></td><td><span class="mono">CVE-2026-110879</span>: CVSS 9.8</td><td><span class="sev h">Có PoC</span></td><td>Nâng cấp thư viện</td></tr>
+                <tr data-exp="0" data-date="20261014" data-prod="Next.js / React"><td class="num">14/10</td><td><strong>Next.js / React</strong></td><td>RCE qua xử lý ảnh và use-cache</td><td><span class="sev l">Chưa ghi nhận</span></td><td>Nâng cấp Next.js</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="more">
+        <summary>Danh sách sự cố, kể cả tin chưa chính thức</summary>
+        <div class="more-body">
+          <div class="tools" role="group" aria-label="Lọc theo mức tin cậy">
+            <button class="fbtn" type="button" id="f-all" data-filter="all" aria-pressed="true">Tất cả</button>
+            <button class="fbtn" type="button" id="f-ok" data-filter="ok" aria-pressed="false">Đã xác nhận</button>
+            <button class="fbtn" type="button" id="f-part" data-filter="part" aria-pressed="false">Đang điều tra</button>
+            <button class="fbtn" type="button" id="f-claim" data-filter="claim" aria-pressed="false">Tuyên bố của hacker</button>
+            <button class="fbtn" type="button" id="f-unv" data-filter="unv" aria-pressed="false">Chưa kiểm chứng</button>
+          </div>
+          <div class="tw"><table>
+            <thead><tr><th>Ngày</th><th>Tổ chức</th><th>Chuyện gì xảy ra</th><th>Trạng thái</th></tr></thead>
+            <tbody>
+              <tr data-conf="part"><td class="num">29/10</td><td><strong>Binance</strong></td><td>Khoảng 5,8–6,4 tỷ USD bị rút khỏi hot wallet qua laptop kỹ sư DevOps bị chiếm.<span class="src"><a href="https://www.cnbc.com/2026/10/30/billions-in-crypto-frozen-in-binance-hack-heres-what-happens-next-.html" target="_blank" rel="noopener">CNBC</a><a href="https://www.trmlabs.com/resources/blog/north-korea-steals-usd-6-36-billion-from-binance-in-the-largest-hack-in-history" target="_blank" rel="noopener">TRM Labs</a></span></td><td><span class="b part">Đang điều tra</span></td></tr>
+              <tr data-conf="claim"><td class="num">29/10</td><td>AU Small Finance Bank, Sunnybrook</td><td>ScarlettGroup đăng tên lên leak site, tuyên bố lấy dữ liệu PAN và Aadhaar.<span class="src"><a href="https://www.freepressjournal.in/tech/au-small-finance-bank-hit-by-alleged-cyberattack-hackers-claim-pan-aadhaar-data-stolen" target="_blank" rel="noopener">Free Press Journal</a></span></td><td><span class="b claim">Tuyên bố</span></td></tr>
+              <tr data-conf="unv"><td class="num">29/10</td><td>Polymarket</td><td>Axios nhắc đến vụ mất khoảng 2,7 triệu USD; chưa có nguồn thứ hai.<span class="src"><a href="https://www.axios.com/2026/10/29/binance-cyberattack-crypto-heist" target="_blank" rel="noopener">Axios</a></span></td><td><span class="b unv">Chưa kiểm chứng</span></td></tr>
+              <tr data-conf="ok"><td class="num">28/10</td><td>Daishin, Bithumb, Mirae Asset</td><td>Daishin lộ 38.490 khách hàng; Bithumb vài trăm khách hàng; điều tra 16 tổ chức.<span class="src"><a href="https://techcrunch.com/2026/10/28/south-koreas-financial-industry-hit-by-fresh-wave-of-cyberattacks/" target="_blank" rel="noopener">TechCrunch</a><a href="https://www.koreajoongangdaily.com/business/bithumb-says-personal-information-of-hundreds-of-customers-leaked-in-recent-hack/12945977" target="_blank" rel="noopener">JoongAng</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="part"><td class="num">28/10</td><td>DHS (Mỹ)</td><td>DDoSecrets công bố dữ liệu khoảng 41.000 nhân viên. Okta bác bỏ bị xâm nhập.<span class="src"><a href="https://cyberscoop.com/dhs-employee-data-leak-ddosecrets" target="_blank" rel="noopener">CyberScoop</a></span></td><td><span class="b part">Đang điều tra</span></td></tr>
+              <tr data-conf="ok"><td class="num">28/10</td><td>AfD, Warhorse Studios</td><td>AfD lộ 345.000 email qua WordPress; Warhorse bị xâm nhập hệ thống nội bộ.<span class="src"><a href="https://www.helpnetsecurity.com/2026/10/28/afd-data-breach-email-leak/" target="_blank" rel="noopener">Help Net Security</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">27–28/10</td><td>Sony So-net, Animate</td><td>So-net lộ 2,58 triệu bản ghi; Animate lộ dữ liệu người đăng ký bản tin.<span class="src"><a href="https://www.techradar.com/pro/security/data-breach-at-sony-isp-subsidiary-exposes-2-5-million-customer-records-as-japan-hit-with-another-major-cyberattack" target="_blank" rel="noopener">TechRadar</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">26–28/10</td><td>FEC (Mỹ)</td><td>Hệ thống nộp hồ sơ gián đoạn khoảng 41 giờ.</td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">26/10</td><td>UNM Health</td><td>Xe cấp cứu chuyển hướng, hơn 30 phòng khám hủy lịch.<span class="src"><a href="https://www.bleepingcomputer.com/news/security/unm-health-ransomware-attack-disrupts-patient-care-surgeries/" target="_blank" rel="noopener">BleepingComputer</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="part"><td class="num">22–23/10</td><td>PwC</td><td>Nhà cung cấp lưu hồ sơ đào tạo bị xâm nhập; Everest tuyên bố lấy 590 GB.<span class="src"><a href="https://www.cybersecuritydive.com/news/pwc-learning-records-breached-attack-vendor/856902/" target="_blank" rel="noopener">Cybersecurity Dive</a></span></td><td><span class="b part">Xác nhận một phần</span></td></tr>
+              <tr data-conf="ok"><td class="num">22/10</td><td>University Hospitals (Cleveland)</td><td>Ngắt kết nối Internet, cổng MyChart ngừng hoạt động.</td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">21/10</td><td>Railway</td><td>Biến môi trường đã giải mã của một phần khách hàng có thể bị đọc.<span class="src"><a href="https://blog.railway.com/p/security-disclosure-wednesday-october-21st" target="_blank" rel="noopener">Railway</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">21/10</td><td>LiteLLM</td><td>Bản 1.107.0 trên PyPI và Docker chứa mã đánh cắp thông tin đăng nhập.<span class="src"><a href="https://docs.litellm.ai/blog/security-incident-oct-21-2026" target="_blank" rel="noopener">LiteLLM</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">21/10</td><td>ConnectWise (Storm-0940)</td><td>Bàn đạp vào khoảng 2.250 tenant Microsoft 365.<span class="src"><a href="https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/" target="_blank" rel="noopener">Microsoft</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">20–23/10</td><td>ĐH Copenhagen</td><td>Lộ dữ liệu 525.000 người qua môi trường test.<span class="src"><a href="https://cybersecuritynews.com/university-of-copenhagen-data-breach/" target="_blank" rel="noopener">CybersecurityNews</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="unv"><td class="num">20/10</td><td>GMO / Onamae</td><td>Malware trong môi trường khách hàng; được cho là bị đòi khoảng 50 triệu USD.<span class="src"><a href="https://www.techradar.com/pro/security/japanese-internet-giant-gmo-tells-customers-to-shut-down-and-disconnect-pcs-from-the-internet-following-data-breach-and-ransomware-threat" target="_blank" rel="noopener">TechRadar</a></span></td><td><span class="b unv">Chưa kiểm chứng</span></td></tr>
+              <tr data-conf="ok"><td class="num">17–20/10</td><td>eMudhra</td><td>8 khóa CA yếu, bị các trình duyệt chặn.<span class="src"><a href="https://bleepingcomputer.com/news/security/mozilla-google-apple-block-compromised-emudhra-ca-certificates" target="_blank" rel="noopener">BleepingComputer</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">14–15/10</td><td>Zeabur</td><td>321.810 tài khoản, 3,2 triệu bản ghi biến môi trường; công ty đóng cửa.<span class="src"><a href="https://www.bleepingcomputer.com/news/security/zeabur-shutting-down-after-second-security-breach-in-two-months/" target="_blank" rel="noopener">BleepingComputer</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">1–24/10</td><td>CoinDCX, X100, Gamdom, NEAR Intents, Initia, Cysic, Qubic, Affluent</td><td>1–16 triệu USD mỗi vụ, tổng khoảng 37 triệu USD.<span class="src"><a href="https://defillama.com/hacks" target="_blank" rel="noopener">DefiLlama</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">9–27/10</td><td>Chính quyền địa phương</td><td>Bernalillo, Columbia (Mỹ); Eichstätt, Cham, Dülmen (Đức); Ovar (Bồ Đào Nha); Deán Funes (Argentina).<span class="src"><a href="https://konbriefing.com/en-topics/cyber-attacks-public-administration.html" target="_blank" rel="noopener">KonBriefing</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="claim"><td class="num">27/10</td><td>Machelen (Bỉ)</td><td>Rhysida tuyên bố lấy dữ liệu trợ cấp và hộ tịch.</td><td><span class="b claim">Tuyên bố</span></td></tr>
+              <tr data-conf="ok"><td class="num">10/2026</td><td>Capcom, Burger King Nhật, JR East, Nikkei, Lawson, FamilyMart</td><td>Làn sóng rò rỉ dữ liệu ở Nhật (xem Chương 3).<span class="src"><a href="https://www.ibtimes.co.uk/japan-cyber-crisis-ransomware-data-breaches-1825675" target="_blank" rel="noopener">IBTimes</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">7/10</td><td>IDC Frontier</td><td>Ransomware, 495 tổ chức gián đoạn.<span class="src"><a href="https://www.cybers2.com/blog/japan-breach-wave-october-2026.html" target="_blank" rel="noopener">Cybers2</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">5/10</td><td>Sổ dân cư Đan Mạch</td><td>8,8 triệu người bị lộ qua tài khoản tra cứu của Pays ApS.<span class="src"><a href="https://www.helpnetsecurity.com/2026/10/06/denmark-central-population-register-cpr-data-breach" target="_blank" rel="noopener">Help Net Security</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">24/9</td><td>Bitget</td><td>352–388 triệu USD qua zero-day trong công cụ bảo mật bên thứ ba.<span class="src"><a href="https://www.halborn.com/blog/post/bitget-hack-technical-analysis-september-2026" target="_blank" rel="noopener">Halborn</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">9/2026</td><td>Liquid Network</td><td>Khoảng 320 triệu USD BTC; 85% được trả lại.<span class="src"><a href="https://cryptonews.net/news/security/33596090/" target="_blank" rel="noopener">Cryptonews</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="ok"><td class="num">9/2026</td><td>Gyazo, Mathspace, DMDC, SIMBA, BigCommerce, IDScan</td><td>23,6 triệu; 1,08 triệu; 3,05 triệu; 23.549 người; dữ liệu người mua; nền tảng VeriScan.<span class="src"><a href="https://grcsolutions.io/global-data-breaches-and-cyber-attacks-in-september-2026/" target="_blank" rel="noopener">GRC Solutions</a><a href="https://socradar.io/blog/major-cyber-attacks-september-2026/" target="_blank" rel="noopener">SOCRadar</a></span></td><td><span class="b ok">Đã xác nhận</span></td></tr>
+              <tr data-conf="claim"><td class="num">9/2026</td><td>FBI, McKesson, Veradigm, Condé Nast</td><td>ShinyHunters và The Gentlemen tuyên bố; FBI xác nhận đang điều tra.<span class="src"><a href="https://www.bleepingcomputer.com/news/security/shinyhunters-claims-fbi-hack-data-theft-in-peoplesoft-zero-day-breach/" target="_blank" rel="noopener">BleepingComputer</a><a href="https://www.pkware.com/blog/2026-data-breaches" target="_blank" rel="noopener">PKWARE</a></span></td><td><span class="b claim">Tuyên bố</span></td></tr>
+              <tr data-conf="unv"><td class="num">28–29/10</td><td>Florida, Bộ Tài chính Bỉ, website Argentina</td><td>Chỉ thấy trên trang tổng hợp, tìm lại chỉ ra vụ cũ.</td><td><span class="b unv">Chưa kiểm chứng</span></td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </details>
+
+      <details class="more">
+        <summary>Phương pháp, giới hạn và thuật ngữ</summary>
+        <div class="more-body">
+          <ul>
+            <li>Rà soát theo từng nhóm sự cố trong tháng 9 và 10, đối chiếu với CISA KEV, DefiLlama, ransomware.live, KonBriefing và các bản tổng hợp hàng tháng.</li>
+            <li>Khi các nguồn lệch nhau, báo cáo ghi khoảng giá trị. Mỗi biểu đồ so sánh theo tháng chỉ dùng một nguồn đếm.</li>
+            <li>Danh sách không đầy đủ tuyệt đối. Không bao gồm sự kiện sau 30/10/2026. Số liệu Binance là sơ bộ.</li>
+            <li>Tin chưa chính thức chỉ lấy từ bài tường thuật, không truy cập trực tiếp leak site hay dữ liệu bị đánh cắp.</li>
+            <li>Con số 7,1 tỷ USD tiền mã hóa: tháng 9 theo PeckShield và CertiK; tháng 10 chưa có số chính thức nên cộng các vụ đã biết (Binance và 8 vụ nhỏ). Thiệt hại do ransomware và rò rỉ dữ liệu không có số tổng công khai, nên được ước tính từ chi phí trung bình mỗi vụ (xem phần Tổng thiệt hại ước tính).</li>
+            <li>Đã loại hai con số đang lan truyền nhưng nhiều khả năng là số liệu cũ năm 2022: “DeFi mất 718 triệu USD qua 11 vụ trong tháng 10, 82% qua bridge” và “BNB Chain bị hack 570 triệu USD ngày 6/10”.</li>
+          </ul>
+          <dl class="gloss">
+            <div><dt>Zero-day</dt><dd>Lỗ hổng bị khai thác khi chưa có bản vá.</dd></div>
+            <div><dt>KEV</dt><dd>Danh sách lỗ hổng đang bị khai thác thật, do CISA (Mỹ) duy trì.</dd></div>
+            <div><dt>RCE</dt><dd>Kẻ tấn công chạy được lệnh trên máy nạn nhân từ xa.</dd></div>
+            <div><dt>Ví nóng</dt><dd>Ví tiền mã hóa luôn kết nối mạng để xử lý rút tiền nhanh.</dd></div>
+            <div><dt>Leak site</dt><dd>Trang nhóm ransomware đăng tên nạn nhân để gây sức ép.</dd></div>
+            <div><dt>Biến môi trường, secret</dt><dd>Mật khẩu, khóa API mà phần mềm dùng để kết nối dịch vụ khác.</dd></div>
+            <div><dt>Thiết bị biên</dt><dd>VPN, firewall, cổng email: thiết bị nằm giữa mạng nội bộ và Internet.</dd></div>
+            <div><dt>Prompt injection</dt><dd>Chèn chỉ dẫn ẩn để điều khiển AI làm việc ngoài ý muốn.</dd></div>
+          </dl>
+        </div>
+      </details>
+
+      <details class="more">
+        <summary>Nguồn tham khảo chính</summary>
+        <div class="more-body srcs">
+          <div><strong>Binance và tiền mã hóa</strong><ul>
+            <li><a href="https://www.cnn.com/2026/10/30/tech/binance-crypto-heist-hnk-intl" target="_blank" rel="noopener">CNN</a> · <a href="https://www.bloomberg.com/news/articles/2026-10-30/record-binance-hack-shows-no-crypto-firm-is-too-big-to-breach" target="_blank" rel="noopener">Bloomberg</a> · <a href="https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/" target="_blank" rel="noopener">TechCrunch</a> · <a href="https://www.helpnetsecurity.com/2026/10/30/binance-crypto-hack/" target="_blank" rel="noopener">Help Net Security</a> · <a href="https://news.bitcoin.com/security/inside-the-5-8b-binance-hack-whats-confirmed-and-what-isnt/" target="_blank" rel="noopener">Bitcoin.com</a></li>
+            <li><a href="https://dfns.co/article/the-bitget-hack" target="_blank" rel="noopener">DFNS – Bitget</a> · <a href="https://defillama.com/hacks" target="_blank" rel="noopener">DefiLlama Hacks</a> · <a href="https://x.com/PeckShieldAlert/status/2105505048377848307" target="_blank" rel="noopener">PeckShield – tháng 9</a> · <a href="https://cryptoimpacthub.com/certik-september-2026-crypto-hack-losses-hit-766-4m-led/" target="_blank" rel="noopener">CertiK – tháng 9</a> · <a href="https://cryptoslate.com/crypto-hackers-have-taken-2-7-billion-in-2026-and-the-losses-are-alarmingly-concentrated/" target="_blank" rel="noopener">CryptoSlate – 2,7 tỷ đến tháng 9</a> · <a href="https://www.cryptotimes.io/2026/10/30/october-2026-becomes-worst-month-for-crypto-hacks-in-history/" target="_blank" rel="noopener">Crypto Times – tháng 10</a></li>
+          </ul></div>
+          <div><strong>Lỗ hổng và AI</strong><ul>
+            <li><a href="https://www.cisa.gov/news-events/alerts/2026/10/28/cisa-adds-two-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener">CISA KEV 28/10</a> · <a href="https://www.cisa.gov/news-events/alerts/2026/10/21/critical-vulnerabilities-php-require-immediate-patching" target="_blank" rel="noopener">CISA – PHP</a> · <a href="https://theregister.com/security/2026/10/29/suspected-chinese-attackers-built-a-custom-php2shell-exploit-and-rooted-25-servers/5306456" target="_blank" rel="noopener">The Register – PHP2Shell</a> · <a href="https://www.securityweek.com/php2shell-exploitation-started-days-before-patches/" target="_blank" rel="noopener">SecurityWeek – trước bản vá</a> · <a href="https://cybernews.com/security/php-exploitation-32-million-servers-vulnerable/" target="_blank" rel="noopener">Cybernews – 32,5 triệu</a></li>
+            <li><a href="https://www.wiz.io/blog/cve-2026-111497-brotli-rce-node-js" target="_blank" rel="noopener">Wiz – Brotli</a> · <a href="https://www.rapid7.com/blog/post/etr-ivanti-connect-secure-zero-day-exploited-in-the-wild-cve-2026-104935/" target="_blank" rel="noopener">Rapid7 – Ivanti</a> · <a href="https://bleepingcomputer.com/news/microsoft/microsoft-september-2026-patch-tuesday-fixes-966-flaws-2-zero-days" target="_blank" rel="noopener">Patch Tuesday T9</a> · <a href="https://cyberscoop.com/microsoft-patch-tuesday-october-2026/" target="_blank" rel="noopener">Patch Tuesday T10</a></li>
+            <li><a href="https://www.helpnetsecurity.com/2026/10/01/google-ai-discovered-vulnerabilities-remote-code-execution/" target="_blank" rel="noopener">Google GTIG</a> · <a href="https://www.softwareimprovementgroup.com/blog/mythos-project-glasswing-security/" target="_blank" rel="noopener">Glasswing (tháng 10)</a> · <a href="https://aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing" target="_blank" rel="noopener">AISI</a> · <a href="https://thehackernews.com/2026/10/anthropic-cuts-live-internet-access-for.html" target="_blank" rel="noopener">THN – Anthropic</a> · <a href="https://www.theregister.com/security/2026/10/22/microsoft-says-connectwise-breach-let-chinese-spies-loose-on-2250-cloud-tenants/5304687" target="_blank" rel="noopener">The Register – Storm-0940</a></li>
+          </ul></div>
+          <div><strong>Ước tính thiệt hại</strong><ul>
+            <li><a href="https://databreachcost.com/report/2026" target="_blank" rel="noopener">IBM Cost of a Data Breach 2026</a> · <a href="https://securityboulevard.com/2026/08/how-much-does-a-data-breach-cost-ibms-2026-report-puts-the-us-average-at-11-5-million/" target="_blank" rel="noopener">IBM – trung bình ở Mỹ</a> · <a href="https://infotechlead.com/security/sophos-ransomware-report-2026-email-and-identity-attacks-surge-as-recovery-cost-hits-1-7-million-97651" target="_blank" rel="noopener">Sophos State of Ransomware 2026</a> · <a href="https://www.veeam.com/blog/cyber-extortion-payment-trends-q3-2026.html" target="_blank" rel="noopener">Coveware quý 3/2026</a></li>
+            <li><a href="https://helpnetsecurity.com/2026/04/07/online-crime-financial-losses-fbi-report" target="_blank" rel="noopener">FBI IC3 2025</a> · <a href="https://grcsolutions.io/global-data-breaches-and-cyber-attacks-in-september-2026/" target="_blank" rel="noopener">GRC Solutions – tháng 9</a> · <a href="https://www.cybermon.co.in/blog/q3-2026-ransomware-trends-report" target="_blank" rel="noopener">Cybermon – ngành quý 3</a> · <a href="https://www.brightdefense.com/resources/cybercrime-statistics/" target="_blank" rel="noopener">Ước tính chi phí tội phạm mạng toàn cầu</a></li>
+          </ul></div>
+          <div><strong>Ransomware, rò rỉ, khu vực</strong><ul>
+            <li><a href="https://www.guidepointsecurity.com/resources/grit-q3-2026-ransomware-cyber-threat-insights-report/" target="_blank" rel="noopener">GuidePoint Q3</a> · <a href="https://blog.knowbe4.com/report-ransomware-attacks-hit-a-record-high-in-q3-2026" target="_blank" rel="noopener">Comparitech qua KnowBe4</a> · <a href="https://que.com/byod-ransomware-gang-claims-moral-high-ground-while-paralyzing-unm-health" target="_blank" rel="noopener">HackerFeeds</a> · <a href="https://www.beckershospitalreview.com/healthcare-information-technology/cybersecurity/" target="_blank" rel="noopener">Becker's</a> · <a href="https://www.securityweek.com/police-shut-down-killsec-ransomware-identify-alleged-teen-leader/amp/" target="_blank" rel="noopener">KillSec</a></li>
+            <li><a href="https://foresiet.com/resources/knowledge-hub/biggest-data-breaches-september-2026/" target="_blank" rel="noopener">Foresiet T9</a> · <a href="https://www.privacyguides.org/news/2026/10/23/data-breach-roundup-oct-16-22-2026/" target="_blank" rel="noopener">Privacy Guides</a> · <a href="https://techxplore.com/news/2026-10-japan-vigilance-cyberattacks.html" target="_blank" rel="noopener">Nhật Bản</a> · <a href="https://thenextweb.com/news/denmark-cpr-breach-8-8-million-records" target="_blank" rel="noopener">Đan Mạch</a> · <a href="https://balticsentinel.eu/8570914/russia-s-hybrid-attacks-in-europe-are-growing-more-dangerous-54-incidents-identified-in-six-months" target="_blank" rel="noopener">Nga – 54 vụ</a> · <a href="https://www.helpnetsecurity.com/2026/05/20/verizon-2026-dbir-findings/" target="_blank" rel="noopener">Verizon DBIR</a></li>
+            <li><a href="https://vietnamnet.vn/binance-dieu-tra-vu-tan-cong-khi-dong-tien-rut-bat-thuong-len-toi-5-8-ty-usd-2569807.html" target="_blank" rel="noopener">VietNamNet</a> · <a href="https://nhandan.vn/video-diem-tin-an-ninh-mang-thang-102026-post997823.html" target="_blank" rel="noopener">Nhân Dân</a> · <a href="https://vietbao.vn/lap-khoang-trong-phap-ly-truoc-nguy-co-du-lieu-bi-danh-cap-rao-ban-612952.html" target="_blank" rel="noopener">Vietbao</a></li>
+          </ul></div>
+        </div>
+      </details>
+    </section>
+  </main>
+</div>
+
+<footer>Tổng hợp từ nguồn công khai, cập nhật đến 30/10/2026. Nhãn tin cậy phản ánh trạng thái tại thời điểm tổng hợp và có thể thay đổi.</footer>
+<div id="tip" hidden></div>
+
+<script>
+(function(){
+  var tip = document.getElementById('tip');
+  function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function attachTip(node, value, label){
+    node.tabIndex = 0;
+    node.setAttribute('aria-label', label + ': ' + value);
+    function show(x, y){
+      tip.textContent = '';
+      tip.appendChild(el('b', null, value));
+      tip.appendChild(el('span', null, label));
+      tip.hidden = false;
+      var w = tip.offsetWidth, h = tip.offsetHeight;
+      var left = Math.min(x + 14, window.innerWidth - w - 8);
+      var top = y - h - 12; if (top < 8) top = y + 16;
+      tip.style.left = Math.max(8, left) + 'px'; tip.style.top = top + 'px';
+    }
+    node.addEventListener('pointermove', function(e){ show(e.clientX, e.clientY); });
+    node.addEventListener('pointerleave', function(){ tip.hidden = true; });
+    node.addEventListener('focus', function(){ var r = node.getBoundingClientRect(); show(r.left + r.width / 2, r.top); });
+    node.addEventListener('blur', function(){ tip.hidden = true; });
+  }
+  function tableView(host, head, rows){
+    var d = el('details', 'tv'); d.appendChild(el('summary', null, 'Xem số liệu dạng bảng'));
+    var t = el('table'), th = el('thead'), tr = el('tr');
+    head.forEach(function(h){ tr.appendChild(el('th', null, h)); }); th.appendChild(tr); t.appendChild(th);
+    var tb = el('tbody');
+    rows.forEach(function(r){ var row = el('tr'); r.forEach(function(c){ row.appendChild(el('td', null, c)); }); tb.appendChild(row); });
+    t.appendChild(tb); var w = el('div', 'tw'); w.appendChild(t); d.appendChild(w); host.appendChild(d);
+  }
+
+  // Horizontal ranked bars
+  function hbars(id, rows, unit){
+    var host = document.getElementById(id); if (!host) return;
+    var max = Math.max.apply(null, rows.map(function(r){ return r.v; }));
+    var wrap = el('div', 'hb');
+    rows.forEach(function(r){
+      var row = el('div', 'hb-row');
+      var l = el('span', 'hb-l', r.l); if (r.sub) l.appendChild(el('small', null, r.sub));
+      var track = el('span', 'hb-track'), bar = el('span', 'hb-bar' + (r.ctx ? ' ctx' : ''));
+      bar.style.width = (r.v / max * 100) + '%'; track.appendChild(bar);
+      row.appendChild(l); row.appendChild(track); row.appendChild(el('span', 'hb-v', r.d));
+      attachTip(row, r.d + (unit ? ' ' + unit : ''), r.l + (r.sub ? ' · ' + r.sub : ''));
+      wrap.appendChild(row);
+    });
+    host.appendChild(wrap);
+    tableView(host, ['Mục', 'Giá trị'], rows.map(function(r){ return [r.l + (r.sub ? ' (' + r.sub + ')' : ''), r.d + (unit ? ' ' + unit : '')]; }));
+  }
+
+  // Vertical columns
+  function columns(id, rows, unit){
+    var host = document.getElementById(id); if (!host) return;
+    var max = Math.max.apply(null, rows.map(function(r){ return r.v; }));
+    var c = el('div', 'cols'), labels = el('div', 'col-labels');
+    rows.forEach(function(r){
+      var col = el('div', 'col'); col.appendChild(el('span', 'cv', r.d));
+      var b = el('span', 'cb' + (r.ctx ? ' ctx' : '')); b.style.height = 'calc((100% - 30px) * ' + (r.v / max) + ')';
+      col.appendChild(b); c.appendChild(col);
+      labels.appendChild(el('span', null, r.l));
+      attachTip(col, r.d + (unit ? ' ' + unit : ''), r.l);
+    });
+    host.appendChild(c); host.appendChild(labels);
+    tableView(host, ['Mục', 'Giá trị'], rows.map(function(r){ return [r.l, r.d + (unit ? ' ' + unit : '')]; }));
+  }
+
+  // Diverging bars (days before / after patch)
+  function diverging(id, rows, max){
+    var host = document.getElementById(id); if (!host) return;
+    var wrap = el('div', 'dv');
+    rows.forEach(function(r){
+      var row = el('div', 'dv-row');
+      var l = el('span', 'dv-l', r.l); if (r.sub) l.appendChild(el('small', null, r.sub));
+      var neg = el('span', 'dv-side neg'), pos = el('span', 'dv-side pos');
+      var bar = el('span', 'dv-bar'); bar.style.width = (Math.abs(r.v) / max * 100) + '%';
+      var val = el('span', 'dv-v', r.d);
+      if (r.v < 0){ neg.appendChild(val); neg.appendChild(bar); } else { pos.appendChild(bar); pos.appendChild(val); }
+      row.appendChild(l); row.appendChild(neg); row.appendChild(pos);
+      attachTip(row, r.d, r.l + (r.sub ? ' · ' + r.sub : ''));
+      wrap.appendChild(row);
+    });
+    var ax = el('div', 'dv-axis'); ax.appendChild(el('span', null, ''));
+    ax.appendChild(el('span', null, '← trước bản vá')); ax.appendChild(el('span', null, 'sau bản vá →'));
+    wrap.appendChild(ax);
+    host.appendChild(wrap);
+    tableView(host, ['Lỗ hổng', 'Thời điểm khai thác so với bản vá'], rows.map(function(r){ return [r.l + (r.sub ? ' (' + r.sub + ')' : ''), r.d]; }));
+  }
+
+  // Meter
+  function meter(id, part, whole, title, valueText, pctText){
+    var host = document.getElementById(id); if (!host) return;
+    var top = el('div', 'meter-top'); var left = el('span'); left.appendChild(el('b', null, pctText)); left.appendChild(document.createTextNode(' ' + title));
+    top.appendChild(left); top.appendChild(el('span', 'muted', valueText));
+    var track = el('div', 'meter-track'), fill = el('div', 'meter-fill'); fill.style.width = (part / whole * 100) + '%'; track.appendChild(fill);
+    host.appendChild(top); host.appendChild(track);
+    attachTip(track, pctText, title + ' · ' + valueText);
+  }
+
+  // Tall segmented bar
+  function segbar(id, parts){
+    var host = document.getElementById(id); if (!host) return;
+    var total = parts.reduce(function(s, p){ return s + p.v; }, 0);
+    var seg = el('div', 'seg');
+    parts.forEach(function(p){
+      var b = el('div', p.cls, p.label); b.style.flex = p.v + ' 1 0';
+      attachTip(b, p.amount, p.name + ' · ' + Math.round(p.v / total * 100) + '%');
+      seg.appendChild(b);
+    });
+    host.appendChild(seg);
+    tableView(host, ['Phần', 'Giá trị', 'Tỷ lệ'], parts.map(function(p){ return [p.name, p.amount, Math.round(p.v / total * 100) + '%']; }));
+  }
+
+  hbars('ch-loss-type', [
+    {l:'Tiền mã hóa bị đánh cắp', sub:'đo được trên blockchain', v:7.1, d:'7,1 (6,6–7,2)'},
+    {l:'Ransomware', sub:'≈ 1.870 nạn nhân × chi phí trung bình', v:3.6, d:'3,6 (1,9–5,5)'},
+    {l:'Rò rỉ dữ liệu khác', sub:'≈ 80–100 vụ được công bố', v:1.0, d:'1,0 (0,5–2,0)'},
+    {l:'Lừa đảo trực tuyến ở Mỹ', sub:'chỉ phần đã báo cho FBI', v:3.5, d:'≈ 3,5', ctx:true}
+  ], 'tỷ USD');
+
+  hbars('ch-loss-sector', [
+    {l:'Sản xuất', v:0.63, d:'0,63'},
+    {l:'Dịch vụ chuyên nghiệp', v:0.53, d:'0,53'},
+    {l:'Công nghệ', v:0.49, d:'0,49'},
+    {l:'Y tế', v:0.37, d:'0,37'},
+    {l:'Bán lẻ và thương mại điện tử', v:0.26, d:'0,26'},
+    {l:'Các ngành khác', v:1.33, d:'1,33', ctx:true}
+  ], 'tỷ USD');
+
+  columns('ch-cmonths', [
+    {l:'Tháng 9/2026', v:767, d:'≈ 767 triệu', ctx:true},
+    {l:'Tháng 10/2026', v:6337, d:'≈ 6,34 tỷ'}
+  ], 'USD');
+
+  segbar('ch-total', [
+    {cls:'s1', label:'Binance 89%', v:6300, amount:'≈ 6,3 tỷ USD', name:'Binance'},
+    {cls:'s2', label:'', v:388, amount:'352–388 triệu USD', name:'Bitget'},
+    {cls:'s3', label:'', v:320, amount:'≈ 320 triệu USD', name:'Liquid Network'},
+    {cls:'s4', label:'', v:58.5, amount:'≈ 58 triệu USD', name:'Các vụ khác tháng 9'},
+    {cls:'s5', label:'', v:36.5, amount:'≈ 37 triệu USD', name:'Các vụ khác tháng 10'}
+  ]);
+
+  meter('ch-recov', 3.27, 7.1, 'đã bị đóng băng hoặc được trả lại', '≈ 3,3 trên 7,1 tỷ USD', '≈ 46%');
+
+  hbars('ch-heists', [
+    {l:'Binance', sub:'29/10/2026', v:6300, d:'≈ 6.300'},
+    {l:'Bybit', sub:'2/2025, kỷ lục cũ', v:1500, d:'1.500', ctx:true},
+    {l:'Bitget', sub:'24/9/2026', v:388, d:'352–388', ctx:true},
+    {l:'Liquid Network', sub:'9/2026', v:320, d:'≈ 320', ctx:true},
+    {l:'CoinDCX', sub:'21/10/2026', v:16, d:'16', ctx:true}
+  ], 'triệu USD');
+
+  segbar('ch-split', [
+    {cls:'s1', label:'≈ 3,0 tỷ', v:3.0, amount:'≈ 3,0 tỷ USD', name:'Đã đóng băng'},
+    {cls:'s2', label:'≈ 3,3 tỷ', v:3.3, amount:'≈ 3,3 tỷ USD', name:'Chưa thu hồi'}
+  ]);
+
+  diverging('ch-timing', [
+    {l:'Ivanti Connect Secure', sub:'VPN doanh nghiệp', v:-12, d:'12 ngày trước'},
+    {l:'PHP2Shell', sub:'lần thử đầu tiên', v:-4, d:'4 ngày trước'},
+    {l:'PHP2Shell', sub:'sau bản vá', v:0.0132, d:'19 phút sau'},
+    {l:'SonicWall', sub:'lỗi CVSS 10', v:3, d:'3 ngày sau'}
+  ], 12);
+
+  columns('ch-patch', [
+    {l:'Tháng 9/2026', v:966, d:'966', ctx:true},
+    {l:'Tháng 10/2026', v:1411, d:'1.411'}
+  ], 'CVE');
+
+  columns('ch-zeroday', [
+    {l:'Trung bình 2025', v:8, d:'≈ 8', ctx:true},
+    {l:'Trung bình 2026 (T1–T8)', v:11, d:'≈ 11', ctx:true},
+    {l:'Tháng 8/2026', v:22, d:'22'}
+  ], 'zero-day mỗi tháng');
+
+  meter('ch-glass', 516, 6157, 'đã được vá', '516 trên 6.157 lỗi', '8,4%');
+  meter('ch-php', 20.86, 100, 'máy chủ đã vá', 'ngày 27/10/2026', '≈ 21%');
+
+  hbars('ch-breach', [
+    {l:'Gyazo', sub:'bản ghi · 9/2026', v:23.62, d:'23,6'},
+    {l:'Capcom', sub:'tài khoản · 10/2026', v:11.7, d:'11,7'},
+    {l:'Burger King Nhật', sub:'bản ghi · 10/2026', v:11.18, d:'11,2'},
+    {l:'Sổ dân cư Đan Mạch', sub:'người · 5/10', v:8.8, d:'8,8', ctx:true},
+    {l:'Murauchi', sub:'bản ghi · 9/2026', v:7.71, d:'7,7'},
+    {l:'Times Car', sub:'tài khoản · 9/2026', v:6.6, d:'6,6'},
+    {l:'JR East', sub:'bản ghi, tối đa · 10/2026', v:6.09, d:'6,1'},
+    {l:'Bộ Quốc phòng Mỹ (DMDC)', sub:'người · 9/2026', v:3.05, d:'3,05', ctx:true},
+    {l:'Sony So-net', sub:'bản ghi · 27/10', v:2.58, d:'2,58'},
+    {l:'Nikkei', sub:'bản ghi · 10/2026', v:1.83, d:'1,83'},
+    {l:'Mathspace (Úc)', sub:'người · 9/2026', v:1.08, d:'1,08', ctx:true},
+    {l:'ĐH Copenhagen', sub:'người · 23/10', v:0.525, d:'0,53', ctx:true},
+    {l:'AfD (Đức)', sub:'email · 28/10', v:0.345, d:'0,35', ctx:true},
+    {l:'Zeabur', sub:'tài khoản · 15/10', v:0.322, d:'0,32', ctx:true},
+    {l:'Daishin Securities (Hàn Quốc)', sub:'khách hàng · 28/10', v:0.0385, d:'0,04', ctx:true}
+  ], 'triệu');
+
+  columns('ch-months', [
+    {l:'Tháng 9', v:894, d:'894', ctx:true},
+    {l:'Tháng 10 (đến 29/10)', v:977, d:'977'}
+  ], 'nạn nhân');
+
+  hbars('ch-groups', [
+    {l:'N0n', v:152, d:'152'},
+    {l:'Qilin', v:124, d:'124'},
+    {l:'The Gentlemen', v:93, d:'93'}
+  ], 'nạn nhân');
+
+  hbars('ch-sectors', [
+    {l:'Giáo dục', v:50, d:'+50%'},
+    {l:'Y tế', v:39, d:'+39%'},
+    {l:'Chính phủ', v:36, d:'+36%'}
+  ], '');
+
+  // Timeline
+  var cats = {1:'Lỗ hổng', 2:'Tiền mã hóa', 3:'Rò rỉ dữ liệu', 4:'Ransomware', 5:'Nền tảng và chuỗi cung ứng'};
+  var events = [
+    {m:'Tháng 9', items:[
+      ['2/9', 1, 'CISA đưa 7 lỗ hổng đang bị khai thác vào danh sách KEV, gồm SonicWall, JFrog, LiteLLM'],
+      ['8/9', 1, 'Patch Tuesday: Microsoft vá 966 lỗ hổng, 2 lỗ hổng Windows đã bị khai thác'],
+      ['11–16/9', 3, 'Gyazo lộ khoảng 23,6 triệu bản ghi người dùng'],
+      ['13–17/9', 5, 'Dữ liệu người mua ở các cửa hàng BigCommerce bị lấy qua ứng dụng bên thứ ba'],
+      ['18/9', 4, 'ShinyHunters chiếm leak site của chính nhóm ransomware Clop'],
+      ['9/2026', 2, 'Liquid Network mất khoảng 320 triệu USD, 85% sau đó được trả lại'],
+      ['24/9', 2, 'Bitget mất 352–388 triệu USD qua lỗ hổng trong công cụ bảo mật bên thứ ba'],
+      ['27/9', 1, 'Citrix NetScaler có zero-day đang bị khai thác'],
+      ['30/9', 4, 'Cảnh sát châu Âu triệt phá nhóm KillSec, bắt thủ lĩnh 16 tuổi']
+    ]},
+    {m:'Tháng 10', items:[
+      ['1/10', 1, 'Chuỗi 3 zero-day của Ivanti bắt đầu bị khai thác, 12 ngày trước khi có cảnh báo'],
+      ['5/10', 3, 'Đan Mạch công bố sổ dân cư lộ dữ liệu 8,8 triệu người'],
+      ['7/10', 4, 'Ransomware tấn công IDC Frontier, 495 tổ chức Nhật bị gián đoạn'],
+      ['13/10', 1, 'Patch Tuesday kỷ lục: 1.411 lỗ hổng'],
+      ['14–15/10', 5, 'Zeabur bị xâm nhập lần 2 và quyết định đóng cửa'],
+      ['17/10', 5, 'Khóa CA của eMudhra yếu tới mức một khóa có giá trị “4”'],
+      ['21/10', 1, 'PHP2Shell: bản vá khẩn, bị khai thác 19 phút sau'],
+      ['21/10', 5, 'Railway lộ biến môi trường; LiteLLM bị chèn mã độc; Microsoft công bố Storm-0940'],
+      ['26/10', 4, 'UNM Health bị tấn công, xe cấp cứu phải chuyển hướng'],
+      ['28/10', 3, 'DHS bị lộ dữ liệu 41.000 nhân viên; làn sóng tấn công tài chính Hàn Quốc'],
+      ['29/10', 2, 'Binance mất khoảng 6,3 tỷ USD, vụ trộm tiền mã hóa lớn nhất lịch sử']
+    ]}
+  ];
+  var tl = document.getElementById('timeline');
+  events.forEach(function(g){
+    var box = el('div', 'tl-month'); box.appendChild(el('h3', null, g.m));
+    g.items.forEach(function(it){
+      var row = el('div', 'tl-item');
+      row.appendChild(el('span', 'tl-d', it[0]));
+      row.appendChild(el('span', 'tl-dot d' + it[1]));
+      var t = el('span', 'tl-t'); t.appendChild(el('span', 'cat', cats[it[1]])); t.appendChild(document.createTextNode(it[2]));
+      row.appendChild(t); box.appendChild(row);
+    });
+    tl.appendChild(box);
+  });
+
+  // Confidence filter (appendix incident list)
+  var btns = document.querySelectorAll('.fbtn');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      var f = b.getAttribute('data-filter');
+      if (f === 'all') document.body.removeAttribute('data-show'); else document.body.setAttribute('data-show', f);
+      btns.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
+  });
+
+  // Vulnerability table: sort + exploited-only filter
+  var table = document.getElementById('vtable'), tbody = table.tBodies[0];
+  var count = document.getElementById('vcount'), only = document.getElementById('only-exp');
+  function refreshCount(){
+    var shown = 0; Array.prototype.forEach.call(tbody.rows, function(r){ if (!r.hidden) shown++; });
+    count.textContent = shown + ' / ' + tbody.rows.length + ' lỗ hổng';
+  }
+  only.addEventListener('change', function(){
+    Array.prototype.forEach.call(tbody.rows, function(r){ r.hidden = only.checked && r.getAttribute('data-exp') !== '3'; });
+    refreshCount();
+  });
+  table.querySelectorAll('.sortbtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var key = btn.getAttribute('data-key'), type = btn.getAttribute('data-type');
+      var dir = btn.getAttribute('data-dir') === 'desc' ? 'asc' : 'desc';
+      table.querySelectorAll('.sortbtn').forEach(function(x){ x.removeAttribute('data-dir'); });
+      btn.setAttribute('data-dir', dir);
+      var rows = Array.prototype.slice.call(tbody.rows);
+      rows.sort(function(a, b){
+        var va = a.getAttribute('data-' + key), vb = b.getAttribute('data-' + key);
+        var c = type === 'num' ? (Number(va) - Number(vb)) : va.localeCompare(vb, 'vi');
+        return dir === 'asc' ? c : -c;
+      });
+      rows.forEach(function(r){ tbody.appendChild(r); });
+    });
+  });
+  refreshCount();
+
+  // Table of contents highlight
+  var links = document.querySelectorAll('.toc a');
+  if ('IntersectionObserver' in window && links.length){
+    var map = {}; links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ links.forEach(function(a){ a.classList.remove('on'); }); var a = map[e.target.id]; if (a) a.classList.add('on'); }
+      });
+    }, {rootMargin:'-20% 0px -70% 0px'});
+    document.querySelectorAll('main section[id]').forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+
+</body></html>
