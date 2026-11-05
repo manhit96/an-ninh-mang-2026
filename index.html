@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Tổng hợp tình hình an ninh mạng toàn cầu tháng 9–10/2026: lỗ hổng bị khai thác nhờ AI, vụ Binance, ransomware, rò rỉ dữ liệu và ước tính thiệt hại.">
+<meta name="description" content="Tổng hợp tình hình an ninh mạng toàn cầu từ 01/09 đến 05/11/2026: tấn công bằng AI agent, lỗ hổng bị khai thác, vụ Binance, ransomware, rò rỉ dữ liệu và ước tính thiệt hại.">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
@@ -266,16 +266,16 @@ html{scroll-behavior:smooth}
 </style>
 
 <header class="mast">
-  <div class="eyebrow">Bản tin an ninh mạng toàn cầu · 01/09 – 30/10/2026</div>
+  <div class="eyebrow">Bản tin an ninh mạng toàn cầu · 01/09 – 05/11/2026</div>
   <h1>An ninh mạng tháng 9–10/2026</h1>
   <p class="lede">Hai tháng dồn dập nhất từ trước đến nay: vụ trộm tiền mã hóa lớn nhất lịch sử, những lỗ hổng bị khai thác chỉ vài phút sau khi có bản vá, và ransomware lập kỷ lục mới. Giới bảo mật gọi tháng 10 là <strong>“Black October”</strong>.</p>
   <p class="lede">Đằng sau là một thay đổi lớn: <strong>AI đang giúp tìm và khai thác lỗ hổng nhanh hơn, rẻ hơn rất nhiều</strong>, trong khi việc vá lỗi vẫn cần thời gian. Lỗ hổng được tìm ra nhiều hơn tốc độ vá, và bên tấn công tận dụng đúng khoảng chênh lệch đó. Không phải vụ nào cũng do AI, nhưng AI đang làm cả làn sóng đến nhanh hơn và rộng hơn. Nội dung gồm: diễn biến chính, mức độ ảnh hưởng, ước tính thiệt hại và khuyến nghị.</p>
-  <div class="meta"><span>Cập nhật: <strong>30/10/2026</strong></span><span>Thời gian đọc: khoảng 14 phút</span><span>Bảng số liệu chi tiết và nguồn ở phụ lục</span></div>
+  <div class="meta"><span>Cập nhật: <strong>05/11/2026</strong></span><span>Thời gian đọc: khoảng 14 phút</span><span>Bảng số liệu chi tiết và nguồn ở phụ lục</span></div>
   <div class="kpis">
-    <div class="kpi"><span class="v">≈ 12 tỷ USD</span><span class="k">thiệt hại ước tính của các sự cố trong hai tháng (9–15 tỷ), trong đó 7,1 tỷ là tiền mã hóa bị đánh cắp</span></div>
+    <div class="kpi"><span class="v">≈ 12 tỷ USD</span><span class="k">thiệt hại ước tính của các sự cố trong hai tháng (10–15 tỷ), trong đó khoảng 7,3 tỷ là tiền mã hóa bị đánh cắp</span></div>
     <div class="kpi"><span class="v">19 phút</span><span class="k">sau khi PHP phát hành bản vá, lỗ hổng đã bị khai thác</span></div>
     <div class="kpi"><span class="v">1.411</span><span class="k">lỗ hổng Microsoft vá trong một đợt tháng 10, nhiều nhất từ trước đến nay</span></div>
-    <div class="kpi"><span class="v">977</span><span class="k">tổ chức bị ransomware nêu tên trong tháng 10 (đến ngày 29)</span></div>
+    <div class="kpi"><span class="v">1.127</span><span class="k">tổ chức bị ransomware nêu tên trong tháng 10, tăng 26% so với tháng 9</span></div>
   </div>
 </header>
 
@@ -283,10 +283,11 @@ html{scroll-behavior:smooth}
   <nav class="toc" aria-label="Mục lục">
     <div class="eyebrow">Mục lục</div>
     <ol>
-      <li><a href="#dong-thoi-gian">Hai tháng nhìn lại</a></li>
+      <li><a href="#cap-nhat">Mới: 31/10 – 05/11</a></li>
+        <li><a href="#dong-thoi-gian">Hai tháng nhìn lại</a></li>
         <li><a href="#truoc-thang-9">Trước tháng 9</a></li>
         <li><a href="#tong-thiet-hai">Tổng thiệt hại ước tính</a></li>
-      <li><a href="#binance">Tiền mã hóa: 7,1 tỷ USD</a></li>
+      <li><a href="#binance">Tiền mã hóa: 7,3 tỷ USD</a></li>
       <li><a href="#cuoc-dua">Cuộc đua vá lỗi</a></li>
       <li><a href="#du-lieu">Dữ liệu cá nhân bị lộ</a></li>
       <li><a href="#ransomware">Ransomware lập kỷ lục</a></li>
@@ -305,10 +306,11 @@ html{scroll-behavior:smooth}
     <details class="more toc-m">
       <summary>Mục lục</summary>
       <ol>
+        <li><a href="#cap-nhat">Mới: 31/10 – 05/11</a></li>
         <li><a href="#dong-thoi-gian">Hai tháng nhìn lại</a></li>
         <li><a href="#truoc-thang-9">Trước tháng 9</a></li>
         <li><a href="#tong-thiet-hai">Tổng thiệt hại ước tính</a></li>
-        <li><a href="#binance">Tiền mã hóa: 7,1 tỷ USD</a></li>
+        <li><a href="#binance">Tiền mã hóa: 7,3 tỷ USD</a></li>
         <li><a href="#cuoc-dua">Cuộc đua vá lỗi</a></li>
         <li><a href="#du-lieu">Dữ liệu cá nhân bị lộ</a></li>
         <li><a href="#ransomware">Ransomware lập kỷ lục</a></li>
@@ -322,6 +324,58 @@ html{scroll-behavior:smooth}
         <li><a href="#chi-tiet">Số liệu chi tiết và nguồn</a></li>
       </ol>
     </details>
+
+    <!-- UPDATE 31/10 - 05/11 -->
+    <section id="cap-nhat">
+      <div class="chap"><div class="eyebrow">Cập nhật mới nhất</div><h2>Từ 31/10 đến 05/11: AI agent tấn công thật, lỗ hổng mới tiếp tục xuất hiện</h2></div>
+      <div class="story">
+        <p>Tuần đầu tháng 11 xác nhận xu hướng của tháng 10. Nhiều vụ xâm nhập được chính nạn nhân hoặc hãng bảo mật mô tả là do <strong>AI agent</strong> thực hiện, trong đó có cả Chainalysis, công ty chuyên truy vết các vụ hack tiền mã hóa. Thêm nhiều lỗ hổng nghiêm trọng mới được công bố và bị khai thác chỉ trong vài ngày.</p>
+        <p>Tính cả các vụ mới từ 01/11 đến 05/11 (Mercado Bitcoin, nạn nhân ransomware đầu tháng 11, các vụ rò rỉ dữ liệu mới) và các vụ tấn công hệ thống tủ lạnh siêu thị ở châu Âu, tổng thiệt hại trực tiếp ước tính từ 01/09 đến 05/11 là khoảng <strong>13 tỷ USD</strong> (10–16 tỷ). Cách tính giống phần Tổng thiệt hại ước tính bên dưới; số nạn nhân ransomware đầu tháng 11 được ước theo nhịp của tháng 10, và thiệt hại của các siêu thị được giả định 20.000–100.000 USD mỗi cửa hàng vì chưa có số liệu công bố.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>AI agent: từ thử nghiệm sang tấn công thật</h3>
+          <ul>
+            <li><strong>VAPOR PANDA</strong> (gắn với Trung Quốc, CrowdStrike công bố 29/10): dùng bộ công cụ ARTEX chạy chủ yếu trên DeepSeek, nhắm vào hơn 200 tổ chức ở ít nhất 14 nước trong 11 ngày từ 17/10. CrowdStrike xác nhận 9 tổ chức bị xâm nhập sâu. Microsoft trước đó đã gắn ARTEX với nhóm Storm-0940.</li>
+            <li><strong>Chainalysis</strong> (công bố 30–31/10): kẻ tấn công dùng “kỹ thuật agentic tấn công” để vào hệ thống nội bộ đầu tháng 10. Lộ tên, email, ID và vai trò của người dùng.</li>
+            <li><strong>GitBook</strong> (2/11): nền tảng tài liệu của nhiều dự án tiền mã hóa bị lấy thông tin đăng nhập hạ tầng trong một vụ tấn công dùng AI agent, khuyến cáo khách hàng đổi khóa.</li>
+            <li>Bốn nhóm tấn công mới dùng AI agent được công bố ngày 4/11, trong đó một nhóm xâm nhập ít nhất 15 cơ sở y tế ở Argentina, một nhóm khác truy cập 726 cơ sở dữ liệu trong môi trường Kubernetes.</li>
+            <li>NCSC (Anh, 3/11) cảnh báo mã độc dùng AI rất có thể sẽ tấn công hạ tầng trọng yếu của Anh trước năm 2028.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Binance: mở lại rút tiền, chưa có báo cáo kỹ thuật</h3>
+          <ul>
+            <li>Rút tiền mở lại theo từng đợt từ <strong>1/11</strong>. Binance cho biết đã bù khoảng 95% tài sản bị ảnh hưởng.</li>
+            <li><strong>FBI</strong> chính thức quy vụ này cho nhóm TraderTraitor của Triều Tiên; Triều Tiên bác bỏ. Chainalysis ước tính khoảng 6,4 tỷ USD.</li>
+            <li>Khoảng 2,8 tỷ USD bị đóng băng (3/11). Theo Elliptic, tiền chủ yếu được rửa qua Tron, khoảng 786 triệu USD stablecoin đã kịp đổi trước khi bị khóa.</li>
+            <li>Nguyên nhân gốc vẫn chưa được công bố đầy đủ. Một nguồn tin cho rằng vụ tấn công bắt đầu từ một buổi phỏng vấn tuyển dụng giả, nhưng thông tin này chưa được xác nhận. AI có vai trò gì hay không vẫn chưa rõ.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Lỗ hổng mới cần vá</h3>
+          <ul>
+            <li><strong>Nhân Linux, TCP</strong> (CVE-2026-98432, CVSS 9.8): chạy mã từ xa không cần đăng nhập. Red Hat đã có bản vá, Ubuntu đang thử nghiệm. Chưa thấy bị khai thác.</li>
+            <li><strong>WordPress lõi</strong> (CVE-2026-119977): lỗi trong lúc nâng cấp cho phép chạy mã không cần đăng nhập. Đang bị khai thác, CISA đưa vào KEV ngày 3/11.</li>
+            <li><strong>Ivanti Connect Secure</strong>: thêm 2 zero-day (CVE-2026-111357, CVE-2026-118527) trong cùng chuỗi tấn công. Bản vá ngày 13/10 chưa đủ, cần nâng lên 25.1.1.3 hoặc 22.8R2.6.</li>
+            <li><strong>Broccoli2Shell</strong> (Brotli) đã bị khai thác và vào KEV từ 27/10. Ảnh hưởng thêm PowerShell, Envoy, Istio và VMware SDDC Manager.</li>
+            <li><strong>Android</strong>: bản tin tháng 11 có lỗi chạy mã từ xa không cần người dùng thao tác (CVE-2026-58868).</li>
+            <li>Lỗi PHP thứ ba (CVE-2026-115560) <strong>vẫn chưa có bản vá chính thức</strong>.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Sự cố mới và các vụ trước đó bị bỏ sót</h3>
+          <ul>
+            <li><strong>Siêu thị châu Âu:</strong> ngày 13/10, kẻ tấn công điều khiển từ xa tủ lạnh, tủ đông của khoảng 400–700 siêu thị ở Pháp (Intermarché, Netto, Coopérative U, Carrefour, Monoprix), đẩy nhiệt độ lên tới 50°C. Mục tiêu là các module điều khiển từ xa Danfoss và Copeland đời cũ, không còn được cập nhật. Đợt hai ngày 2/11 lan ra ít nhất 7 nước EU, hơn 100 cửa hàng. EU gọi đây là hành vi cố ý phá chuỗi cung ứng thực phẩm. Chưa có ai nhận trách nhiệm.</li>
+            <li><strong>Tiền mã hóa:</strong> Mercado Bitcoin (Brazil) mất khoảng 49 triệu USD; BitMart bị xâm nhập lần thứ hai (2/11).</li>
+            <li><strong>DreamHost:</strong> công cụ File Manager làm lộ tài khoản FTP/SFTP của khách hàng dùng từ khoảng tháng 8 đến 23/10.</li>
+            <li><strong>Harvard và UPenn:</strong> ShinyHunters công bố hơn 1 triệu bản ghi đánh cắp từ hai trường.</li>
+            <li><strong>AO3:</strong> thư viện truyện của người hâm mộ ngừng hoạt động 2–4 tuần sau sự cố bảo mật (30/10).</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Nguồn: <a href="https://www.datastudios.org/post/crowdstrike-vapor-panda-artex-deepseek-ai-agents-200-organizations" target="_blank" rel="noopener">CrowdStrike VAPOR PANDA</a> · <a href="https://bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques" target="_blank" rel="noopener">BleepingComputer – Chainalysis</a> · <a href="https://decrypt.co/382465/crypto-docs-gitbook-ai-agent-security-breach" target="_blank" rel="noopener">Decrypt – GitBook</a> · <a href="https://www.cyberdaily.au/security/14395-report-new-research-uncovers-four-threat-actors-using-ai-agents-in-cyberattacks-2" target="_blank" rel="noopener">Cyber Daily – 4 nhóm dùng AI agent</a> · <a href="https://techcrunch.com/2026/11/01/binance-resumes-withdrawals-following-6-3-billion-breach/" target="_blank" rel="noopener">TechCrunch – Binance</a> · <a href="https://chainalysis.com/blog/binance-exploit-latest-findings-and-response" target="_blank" rel="noopener">Chainalysis – Binance</a> · <a href="https://www.elliptic.co/insights/how-north-korea-is-laundering-the-6-4-billion-stolen-from-binance/" target="_blank" rel="noopener">Elliptic</a> · <a href="https://thehackernews.com/2026/11/red-hat-patches-98-rated-linux-tcp-rce.html" target="_blank" rel="noopener">THN – Linux TCP</a> · <a href="https://thehackernews.com/2026/11/cisa-confirms-hackers-exploiting.html" target="_blank" rel="noopener">THN – WordPress</a> · <a href="https://www.rapid7.com/blog/post/etr-additional-ivanti-connect-secure-zero-days-exploited-in-the-wild-cve-2026-111357-cve-2026-118527/" target="_blank" rel="noopener">Rapid7 – Ivanti</a> · <a href="https://bleepingcomputer.com/news/security/cisa-warns-of-hackers-now-exploiting-critical-node2shell-flaw" target="_blank" rel="noopener">BleepingComputer – Brotli</a> · <a href="https://www.itv.com/news/2026-10-13/cyberattack-hits-700-supermarkets-in-france-sparking-investigation" target="_blank" rel="noopener">ITV – siêu thị Pháp</a> · <a href="https://ny1.com/nyc/all-boroughs/ap-top-news/2026/11/02/freezers-at-supermarkets-in-several-european-countries-hit-by-apparent-cyberattacks" target="_blank" rel="noopener">AP – đợt 2</a> · <a href="https://crypto.news/bitmart-confirms-hack-suspects-same-group-behind-mercado-bitcoin-attack/" target="_blank" rel="noopener">crypto.news – BitMart</a> · <a href="https://gbhackers.com/dreamhost-confirms-data-breach" target="_blank" rel="noopener">GBHackers – DreamHost</a> · <a href="https://www.techradar.com/pro/security/personal-data-stolen-during-harvard-and-upenn-data-breaches-leaked-online-emails-home-addresses-and-more-all-published" target="_blank" rel="noopener">TechRadar – Harvard/UPenn</a> · <a href="https://gizmodo.com/popular-fan-fiction-site-ao3-could-be-offline-for-a-month-following-security-incident-2000833091" target="_blank" rel="noopener">Gizmodo – AO3</a> · <a href="https://www.techflowpost.com/en-US/newsletter/142299" target="_blank" rel="noopener">PeckShield – tháng 10</a> · <a href="https://cryptonews.net/news/security/33681955/" target="_blank" rel="noopener">CertiK – 2026</a> · <a href="https://tech-insider.org/ransomware-attacks-october-2026-1127-claims-n0n-gentlemen-qilin-2026/" target="_blank" rel="noopener">HackerFeeds – ransomware tháng 10</a></p>
+    </section>
 
     <!-- TIMELINE -->
     <section id="dong-thoi-gian">
@@ -359,7 +413,7 @@ html{scroll-behavior:smooth}
       <div class="chap"><div class="eyebrow">Bức tranh chung</div><h2>Tổng thiệt hại ước tính: khoảng 12 tỷ USD trong hai tháng</h2></div>
       <div class="story">
         <p>Chỉ có tiền mã hóa bị đánh cắp là đo được khá chính xác, vì mọi giao dịch nằm trên blockchain. Phần lớn công ty bị ransomware hay rò rỉ dữ liệu không công bố số tiền bị thiệt hại. Vì vậy con số dưới đây là <strong>ước tính</strong>: lấy số vụ đã biết nhân với chi phí trung bình mỗi vụ theo các khảo sát lớn của IBM, Sophos và Coveware.</p>
-        <p>Kết quả: các sự cố trong tháng 9–10 gây thiệt hại khoảng <strong>9–15 tỷ USD</strong>, ước tính giữa khoảng <strong>12 tỷ USD</strong>. Tiền mã hóa chiếm hơn một nửa, chủ yếu do vụ Binance. Nếu tính thêm lừa đảo trực tuyến mà người dân Mỹ báo cho FBI (khoảng 3,5 tỷ USD mỗi hai tháng), tổng lên khoảng 15 tỷ USD.</p>
+        <p>Kết quả: các sự cố trong tháng 9–10 gây thiệt hại khoảng <strong>10–15 tỷ USD</strong>, ước tính giữa khoảng <strong>12 tỷ USD</strong>. Tiền mã hóa chiếm hơn một nửa, chủ yếu do vụ Binance. Nếu tính thêm lừa đảo trực tuyến mà người dân Mỹ báo cho FBI (khoảng 3,5 tỷ USD mỗi hai tháng), tổng lên khoảng 15 tỷ USD.</p>
       </div>
       <div class="figs">
         <figure>
@@ -371,7 +425,7 @@ html{scroll-behavior:smooth}
         </figure>
         <figure>
           <div class="ft">Thiệt hại do ransomware chia theo ngành</div>
-          <div class="fs">Tỷ USD, lấy mức giữa 3,6 tỷ chia theo tỷ lệ nạn nhân quý 3</div>
+          <div class="fs">Tỷ USD, lấy mức giữa 4,0 tỷ chia theo tỷ lệ nạn nhân quý 3</div>
           <div id="ch-loss-sector"></div>
           <figcaption>Tỷ lệ theo ngành từ Cybermon (quý 3: sản xuất 480, dịch vụ chuyên nghiệp 407, công nghệ 372, y tế 281, bán lẻ 199 nạn nhân) trên tổng 2.760 của GuidePoint. Hai nguồn đếm khác nhau nên đây chỉ là phân bổ gần đúng. Chi phí mỗi vụ ở y tế thường cao hơn trung bình, nên phần của y tế có thể bị đánh giá thấp.</figcaption>
         </figure>
@@ -382,10 +436,10 @@ html{scroll-behavior:smooth}
           <div class="tw"><table>
             <thead><tr><th>Thành phần</th><th>Số vụ</th><th>Chi phí mỗi vụ</th><th>Thấp</th><th>Giữa</th><th>Cao</th></tr></thead>
             <tbody>
-              <tr><td><strong>Tiền mã hóa bị đánh cắp</strong></td><td>55–97 vụ tháng 9; Binance và 8 vụ nhỏ tháng 10</td><td>Đo trực tiếp trên blockchain</td><td class="num">6,6</td><td class="num">7,1</td><td class="num">7,2</td></tr>
-              <tr><td><strong>Ransomware</strong></td><td>1.871 nạn nhân bị nêu tên (894 tháng 9 + 977 tháng 10). Mức cao giả định thêm 50% nạn nhân không bị nêu tên vì đã trả tiền hoặc giấu sự cố.</td><td>Thấp: 1,0 triệu USD. Giữa: 1,7 triệu USD chi phí khôi phục, cộng khoảng 470 nạn nhân không bị nêu tên trả tiền chuộc 1,03 triệu USD. Cao: 2.800 nạn nhân × 1,96 triệu USD.</td><td class="num">1,9</td><td class="num">3,6</td><td class="num">5,5</td></tr>
+              <tr><td><strong>Tiền mã hóa bị đánh cắp</strong></td><td>55–97 vụ tháng 9; 56–89 vụ tháng 10 (PeckShield, CertiK)</td><td>Đo trực tiếp trên blockchain</td><td class="num">7,25</td><td class="num">7,26</td><td class="num">7,27</td></tr>
+              <tr><td><strong>Ransomware</strong></td><td>2.023 nạn nhân bị nêu tên (896 tháng 9 + 1.127 tháng 10). Mức cao giả định thêm 50% nạn nhân không bị nêu tên vì đã trả tiền hoặc giấu sự cố.</td><td>Thấp: 1,0 triệu USD. Giữa: 1,7 triệu USD chi phí khôi phục, cộng khoảng 500 nạn nhân không bị nêu tên trả tiền chuộc 1,03 triệu USD. Cao: 3.000 nạn nhân × 1,96 triệu USD.</td><td class="num">2,0</td><td class="num">4,0</td><td class="num">5,9</td></tr>
               <tr><td><strong>Rò rỉ dữ liệu khác</strong></td><td>Khoảng 80–100 vụ được công bố (GRC Solutions đếm 40 vụ trong tháng 9)</td><td>4,99 triệu USD trung bình toàn cầu; vụ ở Mỹ trung bình 11,5 triệu, vụ hàng triệu bản ghi còn đắt hơn nhiều</td><td class="num">0,5</td><td class="num">1,0</td><td class="num">2,0</td></tr>
-              <tr><td><strong>Tổng các sự cố</strong></td><td></td><td></td><td class="num"><strong>9,0</strong></td><td class="num"><strong>11,7</strong></td><td class="num"><strong>14,7</strong></td></tr>
+              <tr><td><strong>Tổng các sự cố</strong></td><td></td><td></td><td class="num"><strong>9,8</strong></td><td class="num"><strong>12,3</strong></td><td class="num"><strong>15,2</strong></td></tr>
               <tr><td>Lừa đảo trực tuyến ở Mỹ (tham khảo)</td><td>FBI IC3 2025: 20,9 tỷ USD mỗi năm</td><td>Chia cho 6 để ra hai tháng</td><td></td><td class="num">3,5</td><td></td></tr>
             </tbody>
           </table></div>
@@ -405,31 +459,31 @@ html{scroll-behavior:smooth}
 
     <!-- BINANCE -->
     <section id="binance">
-      <div class="chap"><div class="eyebrow">Chương 1</div><h2>Tiền mã hóa: khoảng 7,1 tỷ USD bị đánh cắp trong hai tháng</h2></div>
+      <div class="chap"><div class="eyebrow">Chương 1</div><h2>Tiền mã hóa: khoảng 7,3 tỷ USD bị đánh cắp trong hai tháng</h2></div>
       <div class="story">
-        <p>Cộng tất cả các vụ trộm tiền mã hóa đã biết trong tháng 9 và tháng 10, tổng thiệt hại ước tính khoảng <strong>7,1 tỷ USD</strong> (6,6–7,2 tỷ tùy nguồn). Riêng tháng 9 đã là tháng tệ nhất năm tính đến lúc đó: khoảng 767 triệu USD qua 55 đến 97 vụ, tùy cách đếm của PeckShield và CertiK. Tháng 10 gấp khoảng 8 lần tháng 9, gần như hoàn toàn do một vụ: Binance.</p>
-        <p>Gần một nửa số tiền đã bị đóng băng hoặc được trả lại. Tính từ đầu năm 2026, thiệt hại tiền mã hóa khoảng 8,2–9,0 tỷ USD.</p>
+        <p>Cộng tất cả các vụ trộm tiền mã hóa đã biết trong tháng 9 và tháng 10, tổng thiệt hại khoảng <strong>7,3 tỷ USD</strong> theo PeckShield và CertiK. Riêng tháng 9 đã là tháng tệ nhất năm tính đến lúc đó: khoảng 767 triệu USD qua 55 đến 97 vụ, tùy cách đếm của PeckShield và CertiK. Tháng 10 lên khoảng 6,5 tỷ USD qua 56–89 vụ, gấp khoảng 8 lần tháng 9, gần như hoàn toàn do một vụ: Binance.</p>
+        <p>Gần một nửa số tiền đã bị đóng băng hoặc được trả lại. Tính từ đầu năm 2026, thiệt hại tiền mã hóa khoảng 8,6–9,2 tỷ USD, mức CertiK gọi là kỷ lục.</p>
       </div>
       <div class="figs">
         <figure>
           <div class="ft">Thiệt hại tiền mã hóa theo tháng</div>
           <div class="fs">Tổng các vụ trộm, USD</div>
           <div id="ch-cmonths"></div>
-          <figcaption>Tháng 9: PeckShield 766,5 triệu (55 vụ), CertiK 768,4 triệu (97 vụ). Tháng 10 chưa có số chính thức, đây là tổng các vụ đã biết: Binance khoảng 6,3 tỷ cộng 8 vụ nhỏ khoảng 37 triệu.</figcaption>
+          <figcaption>Tháng 9: PeckShield 766,5 triệu (55 vụ), CertiK 768,4 triệu (97 vụ). Tháng 10: PeckShield 6,48 tỷ (56 vụ), CertiK khoảng 6,5 tỷ (89 vụ).</figcaption>
         </figure>
         <figure>
-          <div class="ft">7,1 tỷ USD đến từ đâu</div>
+          <div class="ft">7,3 tỷ USD đến từ đâu</div>
           <div class="fs">Tỷ lệ trong tổng thiệt hại hai tháng</div>
           <div id="ch-total"></div>
           <div class="legend"><span><i class="sw" style="background:var(--c1)"></i>Binance</span><span><i class="sw" style="background:var(--c2)"></i>Bitget</span><span><i class="sw" style="background:var(--c3)"></i>Liquid Network</span><span><i class="sw" style="background:var(--c4)"></i>Các vụ khác tháng 9</span><span><i class="sw" style="background:var(--c5)"></i>Các vụ khác tháng 10</span></div>
           <div class="meter" id="ch-recov"></div>
-          <figcaption>Phần đã thu hồi gồm khoảng 3 tỷ USD bị đóng băng sau vụ Binance và khoảng 271 triệu USD của tháng 9 (CertiK). Nguồn: PeckShield, CertiK, Binance, DefiLlama.</figcaption>
+          <figcaption>Phần đã thu hồi gồm khoảng 3,03 tỷ USD của tháng 10 và khoảng 271 triệu USD của tháng 9 bị đóng băng hoặc được trả lại (CertiK). Nguồn: PeckShield, CertiK, Binance, DefiLlama.</figcaption>
         </figure>
       </div>
       <h3 style="font-family:var(--f-display);font-size:24px;margin-top:8px">Binance: 6,3 tỷ USD trong 20 phút</h3>
       <div class="story">
         <p>Tối 29/10 (giờ UTC, tức khoảng 3 giờ sáng 30/10 ở Việt Nam), tài sản bắt đầu chảy khỏi các ví nóng của Binance trên 10 blockchain cùng lúc. Chỉ trong khoảng 20 phút, phần lớn số tiền đã đi. Binance ước tính thiệt hại khoảng <strong>6,3 tỷ USD</strong>, gấp khoảng 4 lần vụ Bybit năm 2025, vụ trộm từng giữ kỷ lục.</p>
-        <p>Kẻ tấn công <strong>không bẻ khóa được private key</strong>. Theo kết quả sơ bộ, họ chiếm được laptop của một kỹ sư vận hành (DevOps), từ đó vào được một thành phần trong hệ thống rút tiền, rồi ra lệnh rút như một yêu cầu hợp lệ. TRM Labs và Chainalysis cho rằng thủ phạm là nhóm TraderTraitor của Triều Tiên. Binance chưa nêu tên ai. Laptop bị chiếm bằng cách nào, và AI có đóng vai trò gì trong vụ này hay không, vẫn chưa được công bố. Cần chờ báo cáo kỹ thuật đầy đủ của Binance.</p>
+        <p>Kẻ tấn công <strong>không bẻ khóa được private key</strong>. Theo kết quả sơ bộ, họ chiếm được laptop của một kỹ sư vận hành (DevOps), từ đó vào được một thành phần trong hệ thống rút tiền, rồi ra lệnh rút như một yêu cầu hợp lệ. TRM Labs, Chainalysis và sau đó là FBI cho rằng thủ phạm là nhóm TraderTraitor của Triều Tiên; Triều Tiên bác bỏ. Laptop bị chiếm bằng cách nào, và AI có đóng vai trò gì trong vụ này hay không, vẫn chưa được công bố. Cần chờ báo cáo kỹ thuật đầy đủ của Binance.</p>
       </div>
       <div class="figs">
         <figure>
@@ -504,10 +558,10 @@ html{scroll-behavior:smooth}
         <ul>
           <li><strong>PHP2Shell:</strong> chiếm máy chủ web chạy PHP từ xa. Đã bị khai thác. Ngoài ra còn một lỗi PHP thứ ba chưa có bản vá.</li>
           <li><strong>Fragnesia:</strong> lỗi trong nhân Linux, cho phép từ tài khoản thường lên quyền cao nhất (root). Bị ghép với PHP2Shell để chiếm 25 firewall.</li>
-          <li><strong>Broccoli2Shell:</strong> lỗi trong thư viện nén Brotli, có mặt trong Node.js, .NET, Python, curl và nhiều phần mềm khác. Đã có mã khai thác công khai.</li>
+          <li><strong>Broccoli2Shell:</strong> lỗi trong thư viện nén Brotli, có mặt trong Node.js, .NET, Python, curl và nhiều phần mềm khác. Đã bị khai thác, CISA đưa vào danh sách KEV ngày 27/10.</li>
           <li><strong>Thiết bị biên</strong> (VPN, firewall) của Ivanti, Citrix, Cisco, Palo Alto, SonicWall: đều có lỗ hổng bị khai thác trong hai tháng này.</li>
         </ul>
-        <p class="note">Danh sách đầy đủ 25 lỗ hổng, kèm bản vá cần cài, ở phần <a href="#chi-tiet">Số liệu chi tiết</a>.</p>
+        <p class="note">Danh sách đầy đủ 28 lỗ hổng, kèm bản vá cần cài, ở phần <a href="#chi-tiet">Số liệu chi tiết</a>.</p>
       </div>
     </section>
 
@@ -537,7 +591,7 @@ html{scroll-behavior:smooth}
     <section id="ransomware">
       <div class="chap"><div class="eyebrow">Chương 4</div><h2>Ransomware lập kỷ lục</h2></div>
       <div class="story">
-        <p>Ransomware là kiểu tấn công mã hóa dữ liệu của nạn nhân rồi đòi tiền chuộc, thường kèm đe dọa công bố dữ liệu đã đánh cắp. Các nhóm này đăng tên nạn nhân lên “leak site” để gây sức ép. Quý 3/2026 là quý có nhiều nạn nhân nhất từ trước đến nay, và tháng 10 chưa hết đã vượt tháng 9.</p>
+        <p>Ransomware là kiểu tấn công mã hóa dữ liệu của nạn nhân rồi đòi tiền chuộc, thường kèm đe dọa công bố dữ liệu đã đánh cắp. Các nhóm này đăng tên nạn nhân lên “leak site” để gây sức ép. Quý 3/2026 là quý có nhiều nạn nhân nhất từ trước đến nay, và tháng 10 còn vượt tháng 9 khoảng 26%. Đến 25/10, năm 2026 đã có 8.558 nạn nhân bị nêu tên, nhiều hơn cả năm 2025 (8.146).</p>
         <p>Hậu quả rất cụ thể: ngày 26/10, xe cấp cứu ở New Mexico phải chở bệnh nhân sang bệnh viện khác vì hệ thống UNM Health bị tấn công. Một bệnh viện ở Nebraska phải tắt toàn bộ mạng máy tính.</p>
       </div>
       <div class="stats">
@@ -548,9 +602,9 @@ html{scroll-behavior:smooth}
       <div class="figs">
         <figure>
           <div class="ft">Nạn nhân bị nêu tên trên leak site</div>
-          <div class="fs">Tháng 10 mới tính đến ngày 29</div>
+          <div class="fs">Số liệu cả tháng</div>
           <div id="ch-months"></div>
-          <figcaption>Cùng một nguồn đếm (HackerFeeds). Các nguồn khác đếm tháng 9 trong khoảng 762–894.</figcaption>
+          <figcaption>Cùng một nguồn đếm (HackerFeeds). Breachsense đếm tháng 10 là 953, vì mỗi nguồn đếm theo cách khác nhau.</figcaption>
         </figure>
         <figure>
           <div class="ft">Nhóm hoạt động mạnh nhất tháng 10</div>
@@ -654,8 +708,10 @@ html{scroll-behavior:smooth}
     <section id="theo-doi">
       <div class="chap"><div class="eyebrow">Chương 10</div><h2>Cần theo dõi trong vài tuần tới</h2></div>
       <ol class="watch">
-        <li><span class="when">Vài ngày tới</span><span><strong>Broccoli2Shell</strong> có thể là PHP2Shell tiếp theo: mã khai thác đã công khai, phần mềm bị ảnh hưởng rất rộng.</span></li>
-        <li><span class="when">48 giờ+</span><span><strong>Binance</strong> mở lại rút tiền và công bố báo cáo kỹ thuật: laptop bị chiếm bằng cách nào?</span></li>
+        <li><span class="when">Đến 10/11</span><span><strong>Broccoli2Shell</strong> đã bị khai thác và vào KEV ngày 27/10; hạn vá cho cơ quan liên bang Mỹ là 10/11. Phần mềm bị ảnh hưởng rất rộng.</span></li>
+        <li><span class="when">10/11</span><span><strong>Patch Tuesday tháng 11</strong> của Microsoft, sau đợt kỷ lục 1.411 lỗ hổng của tháng 10.</span></li>
+        <li><span class="when">Ngay</span><span><strong>Lỗi TCP trong nhân Linux</strong> (CVE-2026-98432, CVSS 9.8) cho phép chạy mã từ xa không cần đăng nhập. Chưa thấy bị khai thác nhưng đã có bản vá.</span></li>
+        <li><span class="when">Đang chờ</span><span><strong>Binance</strong> đã mở lại rút tiền từ 1/11 nhưng chưa công bố báo cáo kỹ thuật: laptop bị chiếm bằng cách nào, AI có vai trò gì?</span></li>
         <li><span class="when">Bản PHP tới</span><span><strong>Lỗi PHP thứ ba</strong> sẽ được vá. Ngay khi đó, kẻ tấn công sẽ so sánh bản vá để viết mã khai thác.</span></li>
         <li><span class="when">1–2 tuần</span><span><strong>Hàn Quốc:</strong> cuộc điều tra 16 tổ chức tài chính có thể cho thấy cùng một thủ phạm.</span></li>
         <li><span class="when">1–4 tuần</span><span><strong>Phần mềm backup</strong> (Veeam, Dell) vừa có lỗi nghiêm trọng, là mục tiêu ưa thích của ransomware.</span></li>
@@ -714,7 +770,7 @@ html{scroll-behavior:smooth}
       <p class="story">Phần này dành cho người cần tra cứu. Mỗi sự cố có nhãn mức tin cậy: <span class="b ok">Đã xác nhận</span> <span class="b part">Đang điều tra</span> <span class="b claim">Tuyên bố của hacker</span> <span class="b unv">Chưa kiểm chứng</span>.</p>
 
       <details class="more">
-        <summary>Bảng 25 lỗ hổng cần vá</summary>
+        <summary>Bảng 28 lỗ hổng cần vá</summary>
         <div class="more-body">
           <div class="tools">
             <label for="only-exp"><input type="checkbox" id="only-exp"> Chỉ hiện lỗ hổng đang bị khai thác</label>
@@ -730,11 +786,14 @@ html{scroll-behavior:smooth}
                 <th>Cần làm</th>
               </tr></thead>
               <tbody>
+                <tr data-exp="3" data-date="20261103" data-prod="WordPress"><td class="num">3/11</td><td><strong>WordPress</strong> (lõi)</td><td><span class="mono">CVE-2026-119977</span>: race condition trong lúc nâng cấp, cho phép chạy mã không cần đăng nhập.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Nâng cấp WordPress, theo dõi nhật ký trong lúc cập nhật</td></tr>
+                <tr data-exp="0" data-date="20261102" data-prod="Linux kernel TCP"><td class="num">2/11</td><td><strong>Linux kernel</strong> (TCP IPv4)</td><td><span class="mono">CVE-2026-98432</span>: use-after-free, chạy mã từ xa không cần đăng nhập, CVSS 9.8.</td><td><span class="sev l">Chưa ghi nhận</span></td><td>Bản vá RHEL 8/9/10; Ubuntu đang ở kênh proposed</td></tr>
+                <tr data-exp="0" data-date="20261103" data-prod="Android"><td class="num">11/2026</td><td><strong>Android</strong></td><td><span class="mono">CVE-2026-58868</span>: RCE không cần tương tác người dùng (bản tin bảo mật tháng 11).</td><td><span class="sev l">Chưa ghi nhận</span></td><td>Cập nhật bản vá bảo mật tháng 11</td></tr>
                 <tr data-exp="3" data-date="20261021" data-prod="PHP"><td class="num">21/10</td><td><strong>PHP</strong> 5.4 trở lên</td><td><span class="mono">CVE-2026-109618/109619</span> “PHP2Shell”: RCE không cần xác thực, CVSS 9.2. Khoảng 32,5 triệu dịch vụ phơi nhiễm.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Nâng lên 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35</td></tr>
                 <tr data-exp="0" data-date="20261023" data-prod="PHP"><td class="num">23/10</td><td><strong>PHP</strong></td><td><span class="mono">CVE-2026-115560</span>: RCE trong điều kiện cấu hình hiếm. Chưa có bản vá.</td><td><span class="sev l">Chưa ghi nhận</span></td><td>Đặt <span class="mono">session.upload_progress.enabled = 0</span></td></tr>
                 <tr data-exp="3" data-date="20261028" data-prod="Linux kernel"><td class="num">28/10</td><td><strong>Linux kernel</strong></td><td><span class="mono">CVE-2026-46300</span> “Fragnesia”: leo thang lên root. Bản vá Dirty Frag không sửa được lỗi này.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Kernel stable 7.0.10+ hoặc bản vá của distro</td></tr>
-                <tr data-exp="1" data-date="20261024" data-prod="Brotli"><td class="num">10/2026</td><td><strong>Brotli</strong>: Node.js, .NET, Python, curl…</td><td><span class="mono">CVE-2026-111497</span> “Broccoli2Shell”, CVSS 9.2. Đã có PoC.</td><td><span class="sev h">Có PoC</span></td><td>Brotli 1.0.10 / 1.1.1 / 1.2.1; Node 22.23.4 / 24.22.1 / 26.12.1; bản vá .NET khẩn</td></tr>
-                <tr data-exp="3" data-date="20261013" data-prod="Ivanti Connect Secure"><td class="num">13/10</td><td><strong>Ivanti Connect Secure</strong></td><td><span class="mono">CVE-2026-104935</span> trong chuỗi 3 zero-day. Một lỗi trong chuỗi chưa có bản vá.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá ngay, phân tích bộ nhớ và mạng</td></tr>
+                <tr data-exp="3" data-date="20261027" data-prod="Brotli"><td class="num">27/10</td><td><strong>Brotli</strong>: Node.js, .NET, PowerShell, Python, Envoy, Istio, VMware SDDC Manager…</td><td><span class="mono">CVE-2026-111497</span> “Broccoli2Shell”, CVSS 9.2.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Brotli 1.0.10 / 1.1.1 / 1.2.1; Node 22.23.4 / 24.22.1 / 26.12.1; bản vá .NET khẩn</td></tr>
+                <tr data-exp="3" data-date="20261013" data-prod="Ivanti Connect Secure"><td class="num">13/10</td><td><strong>Ivanti Connect Secure</strong></td><td><span class="mono">CVE-2026-104935</span>, <span class="mono">CVE-2026-111357</span>, <span class="mono">CVE-2026-118527</span>: chuỗi 3 zero-day. Bản vá ngày 13/10 chưa đủ.</td><td><span class="sev c">Đang bị khai thác</span></td><td>Nâng lên 25.1.1.3 / 22.8R2.6, phân tích bộ nhớ và mạng</td></tr>
                 <tr data-exp="3" data-date="20260922" data-prod="WordPress"><td class="num">22/9</td><td><strong>WordPress core</strong></td><td><span class="mono">CVE-2026-87902</span>: bị dò quét chưa tới 6 giờ sau bản vá, Singapore cảnh báo đang bị khai thác (24/9)</td><td><span class="sev c">Đang bị khai thác</span></td><td>Nâng lên WordPress 7.1.2</td></tr>
                 <tr data-exp="3" data-date="20260927" data-prod="Citrix NetScaler"><td class="num">27/9</td><td><strong>Citrix NetScaler</strong></td><td><span class="mono">CVE-2026-88771/88772/88779</span></td><td><span class="sev c">Đang bị khai thác</span></td><td>Áp dụng CTX697096</td></tr>
                 <tr data-exp="3" data-date="20261014" data-prod="Cisco Secure Email Gateway"><td class="num">14/10</td><td><strong>Cisco Secure Email Gateway</strong></td><td><span class="mono">CVE-2026-76519</span>: ghi file không cần xác thực</td><td><span class="sev c">Đang bị khai thác</span></td><td>Vá theo advisory</td></tr>
@@ -814,9 +873,9 @@ html{scroll-behavior:smooth}
           <ul>
             <li>Rà soát theo từng nhóm sự cố trong tháng 9 và 10, đối chiếu với CISA KEV, DefiLlama, ransomware.live, KonBriefing và các bản tổng hợp hàng tháng.</li>
             <li>Khi các nguồn lệch nhau, báo cáo ghi khoảng giá trị. Mỗi biểu đồ so sánh theo tháng chỉ dùng một nguồn đếm.</li>
-            <li>Danh sách không đầy đủ tuyệt đối. Không bao gồm sự kiện sau 30/10/2026. Số liệu Binance là sơ bộ.</li>
+            <li>Danh sách không đầy đủ tuyệt đối. Không bao gồm sự kiện sau 05/11/2026. Số liệu Binance là sơ bộ.</li>
             <li>Tin chưa chính thức chỉ lấy từ bài tường thuật, không truy cập trực tiếp leak site hay dữ liệu bị đánh cắp.</li>
-            <li>Con số 7,1 tỷ USD tiền mã hóa: tháng 9 theo PeckShield và CertiK; tháng 10 chưa có số chính thức nên cộng các vụ đã biết (Binance và 8 vụ nhỏ). Thiệt hại do ransomware và rò rỉ dữ liệu không có số tổng công khai, nên được ước tính từ chi phí trung bình mỗi vụ (xem phần Tổng thiệt hại ước tính).</li>
+            <li>Con số 7,3 tỷ USD tiền mã hóa: tổng số liệu tháng 9 và tháng 10 của PeckShield và CertiK. Thiệt hại do ransomware và rò rỉ dữ liệu không có số tổng công khai, nên được ước tính từ chi phí trung bình mỗi vụ (xem phần Tổng thiệt hại ước tính).</li>
             <li>Mục “Trước tháng 9” là bối cảnh tháng 7–8, không được tính vào số liệu hay ước tính thiệt hại của tháng 9–10. Hai chi tiết đang lan truyền đã được hiệu chỉnh theo nguồn gốc: Virtualizor không bị chiếm máy chủ cập nhật mà bị chiếm đường mạng (BGP); mức cắt tiền thưởng của GitHub là ít nhất một nửa, không phải còn một phần tư.</li>
             <li>Đã loại hai con số đang lan truyền nhưng nhiều khả năng là số liệu cũ năm 2022: “DeFi mất 718 triệu USD qua 11 vụ trong tháng 10, 82% qua bridge” và “BNB Chain bị hack 570 triệu USD ngày 6/10”.</li>
           </ul>
@@ -865,7 +924,7 @@ html{scroll-behavior:smooth}
   </main>
 </div>
 
-<footer>Tổng hợp từ nguồn công khai, cập nhật đến 30/10/2026. Nhãn tin cậy phản ánh trạng thái tại thời điểm tổng hợp và có thể thay đổi.</footer>
+<footer>Tổng hợp từ nguồn công khai, cập nhật đến 05/11/2026. Nhãn tin cậy phản ánh trạng thái tại thời điểm tổng hợp và có thể thay đổi.</footer>
 <div id="tip" hidden></div>
 
 <script>
@@ -980,35 +1039,35 @@ html{scroll-behavior:smooth}
   }
 
   hbars('ch-loss-type', [
-    {l:'Tiền mã hóa bị đánh cắp', sub:'đo được trên blockchain', v:7.1, d:'7,1 (6,6–7,2)'},
-    {l:'Ransomware', sub:'≈ 1.870 nạn nhân × chi phí trung bình', v:3.6, d:'3,6 (1,9–5,5)'},
+    {l:'Tiền mã hóa bị đánh cắp', sub:'đo được trên blockchain', v:7.26, d:'7,3 (7,25–7,27)'},
+    {l:'Ransomware', sub:'≈ 2.020 nạn nhân × chi phí trung bình', v:4.0, d:'4,0 (2,0–5,9)'},
     {l:'Rò rỉ dữ liệu khác', sub:'≈ 80–100 vụ được công bố', v:1.0, d:'1,0 (0,5–2,0)'},
     {l:'Lừa đảo trực tuyến ở Mỹ', sub:'chỉ phần đã báo cho FBI', v:3.5, d:'≈ 3,5', ctx:true}
   ], 'tỷ USD');
 
   hbars('ch-loss-sector', [
-    {l:'Sản xuất', v:0.63, d:'0,63'},
-    {l:'Dịch vụ chuyên nghiệp', v:0.53, d:'0,53'},
-    {l:'Công nghệ', v:0.49, d:'0,49'},
-    {l:'Y tế', v:0.37, d:'0,37'},
-    {l:'Bán lẻ và thương mại điện tử', v:0.26, d:'0,26'},
-    {l:'Các ngành khác', v:1.33, d:'1,33', ctx:true}
+    {l:'Sản xuất', v:0.70, d:'0,70'},
+    {l:'Dịch vụ chuyên nghiệp', v:0.59, d:'0,59'},
+    {l:'Công nghệ', v:0.54, d:'0,54'},
+    {l:'Y tế', v:0.41, d:'0,41'},
+    {l:'Bán lẻ và thương mại điện tử', v:0.29, d:'0,29'},
+    {l:'Các ngành khác', v:1.48, d:'1,48', ctx:true}
   ], 'tỷ USD');
 
   columns('ch-cmonths', [
     {l:'Tháng 9/2026', v:767, d:'≈ 767 triệu', ctx:true},
-    {l:'Tháng 10/2026', v:6337, d:'≈ 6,34 tỷ'}
+    {l:'Tháng 10/2026', v:6480, d:'≈ 6,48 tỷ'}
   ], 'USD');
 
   segbar('ch-total', [
-    {cls:'s1', label:'Binance 89%', v:6300, amount:'≈ 6,3 tỷ USD', name:'Binance'},
+    {cls:'s1', label:'Binance 87%', v:6340, amount:'≈ 6,3–6,4 tỷ USD', name:'Binance'},
     {cls:'s2', label:'', v:388, amount:'352–388 triệu USD', name:'Bitget'},
     {cls:'s3', label:'', v:320, amount:'≈ 320 triệu USD', name:'Liquid Network'},
     {cls:'s4', label:'', v:58.5, amount:'≈ 58 triệu USD', name:'Các vụ khác tháng 9'},
-    {cls:'s5', label:'', v:36.5, amount:'≈ 37 triệu USD', name:'Các vụ khác tháng 10'}
+    {cls:'s5', label:'', v:140, amount:'≈ 140 triệu USD', name:'Các vụ khác tháng 10'}
   ]);
 
-  meter('ch-recov', 3.27, 7.1, 'đã bị đóng băng hoặc được trả lại', '≈ 3,3 trên 7,1 tỷ USD', '≈ 46%');
+  meter('ch-recov', 3.3, 7.26, 'đã bị đóng băng hoặc được trả lại', '≈ 3,3 trên 7,3 tỷ USD', '≈ 45%');
 
   hbars('ch-heists', [
     {l:'Binance', sub:'29/10/2026', v:6300, d:'≈ 6.300'},
@@ -1064,8 +1123,8 @@ html{scroll-behavior:smooth}
   ], 'triệu');
 
   columns('ch-months', [
-    {l:'Tháng 9', v:894, d:'894', ctx:true},
-    {l:'Tháng 10 (đến 29/10)', v:977, d:'977'}
+    {l:'Tháng 9', v:896, d:'896', ctx:true},
+    {l:'Tháng 10', v:1127, d:'1.127'}
   ], 'nạn nhân');
 
   hbars('ch-groups', [
@@ -1100,13 +1159,23 @@ html{scroll-behavior:smooth}
       ['5/10', 3, 'Đan Mạch công bố sổ dân cư lộ dữ liệu 8,8 triệu người'],
       ['7/10', 4, 'Ransomware tấn công IDC Frontier, 495 tổ chức Nhật bị gián đoạn'],
       ['13/10', 1, 'Patch Tuesday kỷ lục: 1.411 lỗ hổng'],
+      ['13/10', 5, 'Hệ thống tủ lạnh, tủ đông của 400–700 siêu thị ở Pháp bị điều khiển từ xa'],
       ['14–15/10', 5, 'Zeabur bị xâm nhập lần 2 và quyết định đóng cửa'],
       ['17/10', 5, 'Khóa CA của eMudhra yếu tới mức một khóa có giá trị “4”'],
       ['21/10', 1, 'PHP2Shell: bản vá khẩn, bị khai thác 19 phút sau'],
       ['21/10', 5, 'Railway lộ biến môi trường; LiteLLM bị chèn mã độc; Microsoft công bố Storm-0940'],
       ['26/10', 4, 'UNM Health bị tấn công, xe cấp cứu phải chuyển hướng'],
       ['28/10', 3, 'DHS bị lộ dữ liệu 41.000 nhân viên; làn sóng tấn công tài chính Hàn Quốc'],
-      ['29/10', 2, 'Binance mất khoảng 6,3 tỷ USD, vụ trộm tiền mã hóa lớn nhất lịch sử']
+      ['29/10', 2, 'Binance mất khoảng 6,3 tỷ USD, vụ trộm tiền mã hóa lớn nhất lịch sử'],
+      ['30/10', 3, 'Chainalysis công bố bị xâm nhập bởi kẻ tấn công dùng AI agent; AO3 ngừng hoạt động nhiều tuần']
+    ]},
+    {m:'Đầu tháng 11', items:[
+      ['1/11', 2, 'Binance mở lại rút tiền theo từng đợt'],
+      ['2/11', 5, 'Đợt tấn công tủ đông siêu thị thứ hai lan ra ít nhất 7 nước EU'],
+      ['2/11', 5, 'GitBook bị tấn công bằng AI agent, khuyến cáo khách hàng đổi khóa'],
+      ['2/11', 2, 'BitMart bị xâm nhập lần 2; Mercado Bitcoin mất khoảng 49 triệu USD'],
+      ['2/11', 1, 'Ivanti vá thêm 2 zero-day; lỗi chạy mã từ xa qua TCP trong nhân Linux (CVSS 9.8)'],
+      ['3/11', 1, 'Lỗ hổng lõi WordPress bị khai thác, CISA đưa vào KEV']
     ]}
   ];
   // Lead-up events (Jul–Aug): context only, not counted in Sep–Oct figures
